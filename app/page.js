@@ -154,21 +154,21 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="space-y-6"
               >
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto lg:mx-0">
                   {quickActions.slice(0, 2).map((action, index) => (
                     <Link
                       key={index}
                       href={`/${action.path}`}
                       className="group p-4 rounded-xl bg-white/5 hover:bg-white/10 backdrop-blur-sm transition-all duration-300 flex items-center space-x-4"
                     >
-                      <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors duration-300">
-                        <action.icon className="w-6 h-6 text-[#FFF0A5]" />
+                      <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors duration-300">
+                        <action.icon className="w-5 h-5 sm:w-6 sm:h-6 text-[#FFF0A5]" />
                       </div>
-                      <div className="flex-1">
-                        <span className="block font-medium text-white text-lg mb-1">
+                      <div className="flex-1 min-w-0">
+                        <span className="block font-medium text-white text-base sm:text-lg mb-0.5 truncate">
                           {action.name}
                         </span>
-                        <span className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-200">
+                        <span className="text-xs sm:text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-200 line-clamp-1">
                           {action.description}
                         </span>
                       </div>
@@ -336,54 +336,44 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section id="tools-section" className="py-20 bg-[#F0F0F0]">
+      <section id="tools-section" className="py-12 sm:py-20 bg-[#F0F0F0]">
         <div className="container-wrapper">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">All PDF Tools</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+              All PDF Tools
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto px-4 sm:px-0">
               Professional tools for all your PDF needs. Easy to use, secure,
               and reliable.
             </p>
           </div>
 
-          <div className="space-y-12">
+          <div className="space-y-8 sm:space-y-12">
             {Object.entries(pdfTools).map(([key, category]) => (
-              <div key={key} className="space-y-6">
-                <h3 className="text-xl font-semibold text-[#002B5C]">
+              <div key={key} className="space-y-4 sm:space-y-6 px-4 sm:px-0">
+                <h3 className="text-lg sm:text-xl font-semibold text-[#002B5C]">
                   {category.title}
                 </h3>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                   {category.tools.map((tool, index) => (
                     <Link
                       key={index}
                       href={`/${tool.path}`}
-                      className="group p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 flex flex-col space-y-4"
+                      className="group p-4 sm:p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 flex flex-col space-y-3 sm:space-y-4"
                     >
-                      <div className="flex items-center space-x-4">
-                        <div className="w-10 h-10 rounded-lg bg-[#002B5C]/5 flex items-center justify-center group-hover:bg-[#002B5C]/10 transition-colors duration-300">
-                          {tool.icon ? (
-                            <tool.icon />
-                          ) : (
-                            <svg
-                              className="w-5 h-5 text-[#002B5C]"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                              />
-                            </svg>
+                      <div className="flex items-center space-x-3">
+                        <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-[#002B5C]/5 flex items-center justify-center group-hover:bg-[#002B5C]/10 transition-colors duration-300">
+                          {tool.icon && (
+                            <div className="w-4 h-4 sm:w-5 sm:h-5 text-[#002B5C]">
+                              <tool.icon />
+                            </div>
                           )}
                         </div>
-                        <h4 className="font-medium text-[#002B5C] group-hover:text-[#009688] transition-colors duration-300">
+                        <h4 className="flex-1 font-medium text-[#002B5C] group-hover:text-[#009688] transition-colors duration-300 text-sm sm:text-base">
                           {tool.name}
                         </h4>
                       </div>
-                      <p className="text-sm text-gray-600">
+                      <p className="text-xs sm:text-sm text-gray-600 line-clamp-2">
                         {tool.description}
                       </p>
                     </Link>
