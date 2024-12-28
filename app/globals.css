@@ -3,19 +3,150 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary-dark: #002B5C;
+  --primary-gray: #29323C;
+  --secondary-light: #F0F0F0;
+  --secondary-teal: #009688;
+  --accent-orange: #FF9800;
+  --accent-yellow: #FFF0A5;
+  --text-dark: #333333;
+  --text-light: #FFFFFF;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply bg-[#F0F0F0] text-[#333333];
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Better focus styles */
+  :focus-visible {
+    @apply outline-none ring-2 ring-[#002B5C] ring-offset-2;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .btn-primary {
+    @apply px-6 py-2 bg-[#002B5C] text-white rounded-lg 
+    hover:bg-opacity-90 transition-all duration-300 
+    focus:ring-2 focus:ring-offset-2 focus:ring-[#002B5C]
+    disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .container-wrapper {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Form styles */
+  .form-input {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg 
+    focus:ring-2 focus:ring-[#002B5C] focus:border-transparent
+    disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Card styles */
+  .card {
+    @apply bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300;
+  }
+}
+
+@layer utilities {
+  /* Custom animations */
+  .animate-spin-slow {
+    animation: spin 3s linear infinite;
+  }
+
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1;
+  }
+
+  /* Custom gradients */
+  .gradient-primary {
+    @apply bg-gradient-to-b from-[#002B5C] to-[#29323C];
+  }
+
+  .gradient-secondary {
+    @apply bg-gradient-to-r from-[#009688] to-[#002B5C];
+  }
+
+  .bg-grid-white {
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H16V16H0V0Z' fill='white'/%3E%3C/svg%3E");
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Page transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
 }
