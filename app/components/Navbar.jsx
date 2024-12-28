@@ -484,7 +484,7 @@ const Navbar = () => {
                             className={`
                             ${
                               tools.length > 4
-                                ? "grid grid-cols-2 gap-2"
+                                ? "grid grid-cols-2 gap-3"
                                 : "space-y-2"
                             }
                             max-h-[400px] overflow-y-auto no-scrollbar
@@ -497,14 +497,14 @@ const Navbar = () => {
                                 className="group block"
                                 role="menuitem"
                               >
-                                <div className="p-3 rounded-lg hover:bg-gray-50/80 transition-all duration-200">
-                                  <div className="flex items-center space-x-3">
-                                    <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-[#002B5C]/5 flex items-center justify-center group-hover:bg-[#002B5C]/10 transition-colors duration-200">
+                                <div className="p-2.5 rounded-lg hover:bg-gray-50/80 transition-all duration-200">
+                                  <div className="flex items-start space-x-2.5">
+                                    <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-[#002B5C]/5 flex items-center justify-center group-hover:bg-[#002B5C]/10 transition-colors duration-200">
                                       {tool.icon ? (
-                                        <tool.icon className="w-5 h-5 text-[#002B5C]" />
+                                        <tool.icon className="w-4 h-4 text-[#002B5C]" />
                                       ) : (
                                         <svg
-                                          className="w-5 h-5 text-[#002B5C]"
+                                          className="w-4 h-4 text-[#002B5C]"
                                           fill="none"
                                           stroke="currentColor"
                                           viewBox="0 0 24 24"
@@ -518,11 +518,11 @@ const Navbar = () => {
                                         </svg>
                                       )}
                                     </div>
-                                    <div className="flex-1 min-w-0">
-                                      <p className="text-sm font-medium text-gray-900 group-hover:text-[#009688] transition-colors duration-200 truncate">
+                                    <div className="flex-1 min-w-0 space-y-0.5">
+                                      <p className="text-xs font-medium text-gray-900 group-hover:text-[#009688] transition-colors duration-200">
                                         {tool.label}
                                       </p>
-                                      <p className="text-xs text-gray-500 truncate">
+                                      <p className="text-[11px] text-gray-500">
                                         {tool.description}
                                       </p>
                                     </div>
