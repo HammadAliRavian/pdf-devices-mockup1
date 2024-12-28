@@ -265,23 +265,25 @@ export default function Home() {
                     <Link
                       key={index}
                       href={`/${tool.path}`}
-                      className="group p-4 sm:p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 flex flex-col space-y-3 sm:space-y-4"
+                      className="group p-4 sm:p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
                     >
-                      <div className="flex items-center space-x-3">
-                        <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-[#002B5C]/5 flex items-center justify-center group-hover:bg-[#002B5C]/10 transition-colors duration-300">
+                      <div className="flex items-start space-x-3">
+                        <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#002B5C]/5 flex items-center justify-center group-hover:bg-[#002B5C]/10 transition-colors duration-300">
                           {tool.icon && (
-                            <div className="w-4 h-4 sm:w-5 sm:h-5 text-[#002B5C]">
+                            <div className="w-5 h-5 text-[#002B5C]">
                               <tool.icon />
                             </div>
                           )}
                         </div>
-                        <h4 className="flex-1 font-medium text-[#002B5C] group-hover:text-[#009688] transition-colors duration-300 text-sm sm:text-base">
-                          {tool.name}
-                        </h4>
+                        <div className="flex-1 min-w-0">
+                          <h4 className="font-medium text-[#002B5C] group-hover:text-[#009688] transition-colors duration-300 text-sm sm:text-base mb-1">
+                            {tool.name}
+                          </h4>
+                          <p className="text-xs sm:text-sm text-gray-600 line-clamp-2">
+                            {tool.description}
+                          </p>
+                        </div>
                       </div>
-                      <p className="text-xs sm:text-sm text-gray-600 line-clamp-2">
-                        {tool.description}
-                      </p>
                     </Link>
                   ))}
                 </div>
