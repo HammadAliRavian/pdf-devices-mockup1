@@ -88,7 +88,7 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-[calc(100vh-5rem)] overflow-hidden">
+      <section className="relative min-h-[calc(100vh-5rem)] overflow-hidden flex items-center justify-center">
         {/* Background with gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#002B5C]/95 via-[#29323C]/95 to-[#002B5C]/95">
           <div className="absolute inset-0 bg-grid-white/[0.03] bg-[length:16px_16px]" />
@@ -96,22 +96,21 @@ export default function Home() {
         </div>
 
         <div className="container-wrapper relative">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[calc(100vh-5rem)] py-12 lg:py-20">
-            {/* Left Content */}
+          <div className="flex flex-col items-center justify-center py-12 lg:py-20">
+            {/* Content */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-center lg:text-left space-y-8 order-2 lg:order-1"
+              className="text-center max-w-4xl mx-auto space-y-8 px-4"
             >
               {/* Badge */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="inline-block"
               >
-                <span className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-[#FFF0A5] text-sm font-medium">
+                <span className="inline-flex items-center px-6 py-2.5 rounded-full bg-white/10 backdrop-blur-sm text-[#FFF0A5] text-sm font-medium">
                   <svg
                     className="w-4 h-4 mr-2"
                     fill="currentColor"
@@ -133,29 +132,70 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="space-y-4"
+                className="space-y-6"
               >
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white max-w-3xl mx-auto">
                   Transform Your{" "}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFF0A5] to-[#FF9800]">
                     PDF Experience
                   </span>
                 </h1>
-                <p className="text-base sm:text-lg text-gray-300 max-w-xl mx-auto lg:mx-0">
+                <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto">
                   Professional tools for managing, editing, and securing your
                   PDF documents with enterprise-grade security.
                 </p>
+              </motion.div>
+
+              {/* Action Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
+              >
+                <Link
+                  href="/signup"
+                  className="w-full sm:w-auto px-8 py-4 bg-[#009688] hover:bg-[#00897b] text-white font-medium rounded-lg transition-all duration-300 text-center min-w-[160px]"
+                >
+                  Start Free Trial
+                </Link>
+                <button
+                  onClick={() => {
+                    document.getElementById("tools-section").scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    });
+                  }}
+                  className="w-full sm:w-auto group inline-flex items-center justify-center px-8 py-4 rounded-lg bg-white/5 hover:bg-white/10 backdrop-blur-sm transition-all duration-300 min-w-[160px]"
+                >
+                  <span className="font-medium text-white mr-2">
+                    Explore Tools
+                  </span>
+                  <svg
+                    className="w-5 h-5 text-white transform group-hover:translate-y-1 transition-transform duration-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                    />
+                  </svg>
+                </button>
               </motion.div>
 
               {/* Quick Actions */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="space-y-6"
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="pt-12"
               >
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto lg:mx-0">
-                  {quickActions.slice(0, 2).map((action, index) => (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-3xl mx-auto">
+                  {quickActions.slice(0, 3).map((action, index) => (
                     <Link
                       key={index}
                       href={`/${action.path}`}
@@ -175,161 +215,27 @@ export default function Home() {
                     </Link>
                   ))}
                 </div>
-
-                {/* View All Tools Button */}
-                <div className="flex justify-center lg:justify-start">
-                  <button
-                    onClick={() => {
-                      document.getElementById("tools-section").scrollIntoView({
-                        behavior: "smooth",
-                        block: "start",
-                      });
-                    }}
-                    className="group inline-flex items-center px-6 py-3 rounded-lg bg-white/5 hover:bg-white/10 backdrop-blur-sm transition-all duration-300"
-                  >
-                    <span className="font-medium text-white mr-2">
-                      View All Tools
-                    </span>
-                    <svg
-                      className="w-5 h-5 text-white transform group-hover:translate-y-1 transition-transform duration-300"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                      />
-                    </svg>
-                  </button>
-                </div>
               </motion.div>
 
               {/* Trust Indicators */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="pt-8 border-t border-white/10"
+                transition={{ duration: 0.5, delay: 0.5 }}
+                className="pt-12 border-t border-white/10"
               >
-                <p className="text-sm text-gray-400 mb-4">
+                <p className="text-sm text-gray-400 mb-6">
                   Trusted by 10,000+ companies worldwide
                 </p>
-                <div className="flex flex-wrap justify-center lg:justify-start gap-6">
+                <div className="flex flex-wrap justify-center gap-8">
                   {[1, 2, 3].map((i) => (
                     <div
                       key={i}
-                      className="h-8 w-24 bg-white/5 rounded backdrop-blur-sm"
+                      className="h-8 w-28 bg-white/5 rounded backdrop-blur-sm"
                     />
                   ))}
                 </div>
               </motion.div>
-            </motion.div>
-
-            {/* Right Upload Area */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="order-1 lg:order-2 w-full max-w-xl mx-auto"
-            >
-              <div className="relative bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10">
-                <div
-                  className={`relative rounded-xl border-2 border-dashed transition-all duration-200 ${
-                    dragActive
-                      ? "border-[#FFF0A5] bg-white/10"
-                      : "border-white/20 hover:border-white/40"
-                  } p-8`}
-                  onDragEnter={handleDrag}
-                  onDragLeave={handleDrag}
-                  onDragOver={handleDrag}
-                  onDrop={handleDrop}
-                >
-                  <input
-                    type="file"
-                    accept=".pdf"
-                    onChange={handleFileChange}
-                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                  />
-                  <div className="text-center">
-                    <div className="mx-auto w-16 h-16 mb-4 rounded-full bg-white/5 flex items-center justify-center">
-                      <svg
-                        className="w-8 h-8 text-[#FFF0A5]"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                        />
-                      </svg>
-                    </div>
-                    <h3 className="text-xl font-semibold text-white mb-2">
-                      Upload your PDF file
-                    </h3>
-                    <p className="text-gray-400 mb-4">
-                      Drop your file here, or{" "}
-                      <span className="text-[#FFF0A5] hover:text-[#FF9800] cursor-pointer">
-                        browse
-                      </span>
-                    </p>
-                    <p className="text-xs text-gray-500">Max file size: 50MB</p>
-                  </div>
-                </div>
-
-                {file && (
-                  <div className="mt-4 p-4 bg-white/5 rounded-lg">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-3">
-                        <svg
-                          className="w-8 h-8 text-[#FFF0A5]"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                          />
-                        </svg>
-                        <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium text-white truncate">
-                            {file.name}
-                          </p>
-                          <p className="text-xs text-gray-400">
-                            {(file.size / 1024 / 1024).toFixed(2)} MB
-                          </p>
-                        </div>
-                      </div>
-                      <button
-                        onClick={() => setFile(null)}
-                        className="p-1 hover:bg-white/10 rounded-full transition-colors duration-200"
-                      >
-                        <svg
-                          className="w-5 h-5 text-gray-400 hover:text-white"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M6 18L18 6M6 6l12 12"
-                          />
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
             </motion.div>
           </div>
         </div>
