@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
 
 const Footer = () => {
   const footerLinks = {
@@ -28,13 +27,7 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center space-x-2">
-              <Image
-                src="/logo.svg"
-                alt="PDF Devices Logo"
-                width={40}
-                height={40}
-              />
-              <span className="text-xl font-bold">PDF Devices</span>
+              <span className="text-xl font-bold">PDFTools</span>
             </Link>
             <p className="text-[#F0F0F0] text-sm">
               Professional PDF solutions for all your document needs.
