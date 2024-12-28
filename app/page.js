@@ -88,7 +88,7 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
+      <section className="relative min-h-[calc(100vh-5rem)] overflow-hidden">
         {/* Background with gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#002B5C]/95 via-[#29323C]/95 to-[#002B5C]/95">
           <div className="absolute inset-0 bg-grid-white/[0.03] bg-[length:16px_16px]" />
@@ -96,133 +96,128 @@ export default function Home() {
         </div>
 
         <div className="container-wrapper relative">
-          <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-5rem)] py-12 lg:py-20">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[calc(100vh-5rem)] py-12 lg:py-20">
             {/* Left Content */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-left space-y-8 order-2 lg:order-1"
+              className="text-center lg:text-left space-y-8 order-2 lg:order-1"
             >
-              <div className="space-y-6">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  className="inline-block"
-                >
-                  <span className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-[#FFF0A5] text-sm font-medium">
-                    <svg
-                      className="w-4 h-4 mr-2"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    Fastest PDF Tools Online
-                  </span>
-                </motion.div>
+              {/* Badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="inline-block"
+              >
+                <span className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-[#FFF0A5] text-sm font-medium">
+                  <svg
+                    className="w-4 h-4 mr-2"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="hidden sm:inline">The</span> Fastest PDF
+                  Tools Online
+                </span>
+              </motion.div>
 
-                <motion.h1
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white"
-                >
+              {/* Heading */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="space-y-4"
+              >
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white">
                   Transform Your{" "}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFF0A5] to-[#FF9800]">
                     PDF Experience
                   </span>
-                </motion.h1>
-
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                  className="text-lg text-gray-300 max-w-xl"
-                >
+                </h1>
+                <p className="text-base sm:text-lg text-gray-300 max-w-xl mx-auto lg:mx-0">
                   Professional tools for managing, editing, and securing your
                   PDF documents with enterprise-grade security.
-                </motion.p>
+                </p>
+              </motion.div>
 
-                {/* Quick Actions */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                >
-                  {/* Quick Actions Grid */}
-                  <div className="grid grid-cols-2 gap-4 pt-4">
-                    {quickActions.slice(0, 2).map((action, index) => (
-                      <Link
-                        key={index}
-                        href={`/${action.path}`}
-                        className="group p-4 rounded-xl bg-white/5 hover:bg-white/10 backdrop-blur-sm transition-all duration-300 flex items-center space-x-3"
-                      >
-                        <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-white/5">
-                          <action.icon />
-                        </div>
-                        <div className="flex-1">
-                          <span className="block font-medium text-white">
-                            {action.name}
-                          </span>
-                          <span className="text-xs text-gray-400">
-                            {action.description}
-                          </span>
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-
-                  {/* All Tools Button */}
-                  <div className="mt-6 text-center sm:text-left">
-                    <button
-                      onClick={() => {
-                        document
-                          .getElementById("tools-section")
-                          .scrollIntoView({
-                            behavior: "smooth",
-                            block: "start",
-                          });
-                      }}
-                      className="inline-flex items-center px-6 py-3 rounded-lg bg-white/5 hover:bg-white/10 backdrop-blur-sm transition-all duration-300 group"
+              {/* Quick Actions */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="space-y-6"
+              >
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {quickActions.slice(0, 2).map((action, index) => (
+                    <Link
+                      key={index}
+                      href={`/${action.path}`}
+                      className="group p-4 rounded-xl bg-white/5 hover:bg-white/10 backdrop-blur-sm transition-all duration-300 flex items-center space-x-4"
                     >
-                      <span className="font-medium text-white">
-                        View All Tools
-                      </span>
-                      <svg
-                        className="w-5 h-5 ml-2 text-white transform group-hover:translate-y-1 transition-transform duration-300"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </motion.div>
-              </div>
+                      <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors duration-300">
+                        <action.icon className="w-6 h-6 text-[#FFF0A5]" />
+                      </div>
+                      <div className="flex-1">
+                        <span className="block font-medium text-white text-lg mb-1">
+                          {action.name}
+                        </span>
+                        <span className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-200">
+                          {action.description}
+                        </span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+
+                {/* View All Tools Button */}
+                <div className="flex justify-center lg:justify-start">
+                  <button
+                    onClick={() => {
+                      document.getElementById("tools-section").scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                      });
+                    }}
+                    className="group inline-flex items-center px-6 py-3 rounded-lg bg-white/5 hover:bg-white/10 backdrop-blur-sm transition-all duration-300"
+                  >
+                    <span className="font-medium text-white mr-2">
+                      View All Tools
+                    </span>
+                    <svg
+                      className="w-5 h-5 text-white transform group-hover:translate-y-1 transition-transform duration-300"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </motion.div>
 
               {/* Trust Indicators */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
                 className="pt-8 border-t border-white/10"
               >
                 <p className="text-sm text-gray-400 mb-4">
                   Trusted by 10,000+ companies worldwide
                 </p>
-                <div className="flex flex-wrap gap-6">
+                <div className="flex flex-wrap justify-center lg:justify-start gap-6">
                   {[1, 2, 3].map((i) => (
                     <div
                       key={i}
@@ -238,7 +233,7 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="order-1 lg:order-2"
+              className="order-1 lg:order-2 w-full max-w-xl mx-auto"
             >
               <div className="relative bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10">
                 <div
