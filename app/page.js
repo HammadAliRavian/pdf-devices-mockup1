@@ -26,6 +26,28 @@ import {
   PowerPointIcon,
   ImageIcon,
 } from "./components/icons/ConvertIcons";
+import {
+  JpgToPdfIcon,
+  PngToPdfIcon,
+  BmpToPdfIcon,
+  TiffToPdfIcon,
+  WordToPdfIcon,
+  PowerPointToPdfIcon,
+  TxtToPdfIcon,
+  ExcelToPdfIcon,
+} from "./components/icons/ConvertToIcons";
+import {
+  PdfToJpgIcon,
+  PdfToPngIcon,
+  PdfToBmpIcon,
+  PdfToTiffIcon,
+  PdfToWordIcon,
+  PdfToPptIcon,
+  PdfToTxtIcon,
+  PdfToExcelIcon,
+} from "./components/icons/ConvertFromIcons";
+import { GrayscaleIcon, RepairIcon } from "./components/icons/OptimizeIcons";
+import { ProtectIcon, UnlockIcon } from "./components/icons/SecurityIcons";
 
 export default function Home() {
   const [dragActive, setDragActive] = useState(false);
@@ -536,38 +558,15 @@ const quickActions = [
 ];
 
 const pdfTools = {
-  popular: {
-    title: "Popular Tools",
+  mergeEdit: {
+    title: "Merge & Edit",
     tools: [
       {
         name: "Merge PDF",
-        icon: MergeIcon,
         path: "merge-pdf",
+        icon: MergeIcon,
         description: "Combine multiple PDFs into one file",
       },
-      {
-        name: "Split PDF",
-        icon: SplitIcon,
-        path: "split-pdf",
-        description: "Separate one PDF into multiple files",
-      },
-      {
-        name: "Compress PDF",
-        icon: CompressIcon,
-        path: "compress-pdf",
-        description: "Reduce PDF file size without losing quality",
-      },
-      {
-        name: "Convert PDF",
-        icon: ConvertIcon,
-        path: "convert-pdf",
-        description: "Convert PDFs to and from other formats",
-      },
-    ],
-  },
-  organize: {
-    title: "Organize PDF",
-    tools: [
       {
         name: "Rotate PDF",
         path: "rotate-pdf",
@@ -575,80 +574,168 @@ const pdfTools = {
         description: "Rotate pages in your PDF file",
       },
       {
-        name: "Reorder Pages",
-        path: "reorder-pdf",
-        icon: ReorderIcon,
-        description: "Change the order of pages in PDF",
-      },
-      {
-        name: "Delete Pages",
-        path: "delete-pages",
+        name: "Remove Pages",
+        path: "remove-pages",
         icon: DeleteIcon,
-        description: "Remove pages from your PDF",
+        description: "Delete unwanted pages from PDF",
       },
       {
-        name: "Extract Pages",
+        name: "Organize PDF",
+        path: "organize-pdf",
+        icon: ReorderIcon,
+        description: "Rearrange pages in your PDF",
+      },
+    ],
+  },
+  optimizeExtract: {
+    title: "Optimize & Extract",
+    tools: [
+      {
+        name: "Compress PDF",
+        path: "compress-pdf",
+        icon: CompressIcon,
+        description: "Reduce PDF file size",
+      },
+      {
+        name: "Grayscale PDF",
+        path: "grayscale-pdf",
+        icon: GrayscaleIcon,
+        description: "Convert PDF to black and white",
+      },
+      {
+        name: "Extract PDF Pages",
         path: "extract-pages",
         icon: ExtractIcon,
         description: "Extract specific pages from PDF",
       },
-    ],
-  },
-  protect: {
-    title: "Protect & Sign",
-    tools: [
       {
-        name: "Password Protect",
-        path: "protect-pdf",
-        icon: PasswordIcon,
-        description: "Secure PDF with a password",
-      },
-      {
-        name: "Sign PDF",
-        path: "sign-pdf",
-        icon: SignIcon,
-        description: "Add digital signatures to PDF",
-      },
-      {
-        name: "Watermark",
-        path: "watermark-pdf",
-        icon: WatermarkIcon,
-        description: "Add watermark to PDF pages",
-      },
-      {
-        name: "Encrypt PDF",
-        path: "encrypt-pdf",
-        icon: EncryptIcon,
-        description: "Encrypt PDF with advanced security",
+        name: "Repair PDF",
+        path: "repair-pdf",
+        icon: RepairIcon,
+        description: "Fix corrupted PDF files",
       },
     ],
   },
-  convert: {
-    title: "Convert PDF",
+  convertTo: {
+    title: "Convert to PDF",
     tools: [
+      {
+        name: "JPG to PDF",
+        path: "jpg-to-pdf",
+        icon: JpgToPdfIcon,
+        description: "Convert JPG images to PDF",
+      },
+      {
+        name: "PNG to PDF",
+        path: "png-to-pdf",
+        icon: PngToPdfIcon,
+        description: "Convert PNG images to PDF",
+      },
+      {
+        name: "Word to PDF",
+        path: "word-to-pdf",
+        icon: WordToPdfIcon,
+        description: "Convert Word documents to PDF",
+      },
+      {
+        name: "PowerPoint to PDF",
+        path: "ppt-to-pdf",
+        icon: PowerPointToPdfIcon,
+        description: "Convert PowerPoint to PDF",
+      },
+      {
+        name: "Excel to PDF",
+        path: "excel-to-pdf",
+        icon: ExcelToPdfIcon,
+        description: "Convert Excel sheets to PDF",
+      },
+      {
+        name: "TXT to PDF",
+        path: "txt-to-pdf",
+        icon: TxtToPdfIcon,
+        description: "Convert text files to PDF",
+      },
+      {
+        name: "BMP to PDF",
+        path: "bmp-to-pdf",
+        icon: BmpToPdfIcon,
+        description: "Convert BMP images to PDF",
+      },
+      {
+        name: "TIFF to PDF",
+        path: "tiff-to-pdf",
+        icon: TiffToPdfIcon,
+        description: "Convert TIFF images to PDF",
+      },
+    ],
+  },
+  convertFrom: {
+    title: "Convert From PDF",
+    tools: [
+      {
+        name: "PDF to JPG",
+        path: "pdf-to-jpg",
+        icon: PdfToJpgIcon,
+        description: "Convert PDF to JPG images",
+      },
+      {
+        name: "PDF to PNG",
+        path: "pdf-to-png",
+        icon: PdfToPngIcon,
+        description: "Convert PDF to PNG images",
+      },
       {
         name: "PDF to Word",
         path: "pdf-to-word",
-        icon: WordIcon,
+        icon: PdfToWordIcon,
         description: "Convert PDF to Word document",
+      },
+      {
+        name: "PDF to PowerPoint",
+        path: "pdf-to-ppt",
+        icon: PdfToPptIcon,
+        description: "Convert PDF to PowerPoint",
       },
       {
         name: "PDF to Excel",
         path: "pdf-to-excel",
-        icon: ExcelIcon,
-        description: "Convert PDF to Excel spreadsheet",
+        icon: PdfToExcelIcon,
+        description: "Convert PDF to Excel sheet",
       },
       {
-        name: "PDF to PPT",
-        path: "pdf-to-ppt",
-        icon: PowerPointIcon,
-        description: "Convert PDF to PowerPoint",
+        name: "PDF to TXT",
+        path: "pdf-to-txt",
+        icon: PdfToTxtIcon,
+        description: "Convert PDF to text file",
       },
       {
-        name: "PDF to Images",
-        path: "pdf-to-images",
-        icon: ImageIcon,
-        description: "Convert PDF pages to images",
+        name: "PDF to BMP",
+        path: "pdf-to-bmp",
+        icon: PdfToBmpIcon,
+        description: "Convert PDF to BMP images",
+      },
+      {
+        name: "PDF to TIFF",
+        path: "pdf-to-tiff",
+        icon: PdfToTiffIcon,
+        description: "Convert PDF to TIFF images",
+      },
+    ],
+  },
+  security: {
+    title: "PDF Security",
+    tools: [
+      {
+        name: "Protect PDF",
+        path: "protect-pdf",
+        icon: ProtectIcon,
+        description: "Add password to PDF file",
+      },
+      {
+        name: "Unlock PDF",
+        path: "unlock-pdf",
+        icon: UnlockIcon,
+        description: "Remove PDF password protection",
       },
     ],
   },

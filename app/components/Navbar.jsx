@@ -3,6 +3,314 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 
+// Basic Icons
+import { MergeIcon, CompressIcon } from "./icons";
+
+// Merge & Edit Icons
+import {
+  RotateIcon,
+  RemovePagesIcon,
+  OrganizeIcon,
+} from "./icons/OrganizeIcons";
+
+// Optimize & Extract Icons
+import {
+  GrayscaleIcon,
+  ExtractPagesIcon,
+  RepairIcon,
+} from "./icons/OptimizeIcons";
+
+// Convert To PDF Icons
+import {
+  WordToPdfIcon,
+  ExcelToPdfIcon,
+  PptToPdfIcon,
+  JpgToPdfIcon,
+  PngToPdfIcon,
+  TxtToPdfIcon,
+  BmpToPdfIcon,
+  TiffToPdfIcon,
+} from "./icons/ConvertToIcons";
+
+// Convert From PDF Icons
+import {
+  PdfToWordIcon,
+  PdfToExcelIcon,
+  PdfToPptIcon,
+  PdfToJpgIcon,
+  PdfToPngIcon,
+  PdfToTxtIcon,
+  PdfToBmpIcon,
+  PdfToTiffIcon,
+} from "./icons/ConvertFromIcons";
+
+// Security Icons
+import { ProtectPdfIcon, UnlockPdfIcon } from "./icons/SecurityIcons";
+
+// Category Icons
+const CategoryIcons = {
+  MergeEdit: ({ className }) => (
+    <svg
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"
+      />
+    </svg>
+  ),
+  OptimizeExtract: ({ className }) => (
+    <svg
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M13 10V3L4 14h7v7l9-11h-7z"
+      />
+    </svg>
+  ),
+  ConvertTo: ({ className }) => (
+    <svg
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+      />
+    </svg>
+  ),
+  ConvertFrom: ({ className }) => (
+    <svg
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+      />
+    </svg>
+  ),
+  Security: ({ className }) => (
+    <svg
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+      />
+    </svg>
+  ),
+};
+
+// Update the toolsGroups object to use the imported icons
+const toolsGroups = {
+  "Merge & Edit": {
+    icon: <CategoryIcons.MergeEdit className="w-5 h-5 text-[#4CAF50]" />,
+    tools: [
+      {
+        label: "Merge PDF",
+        href: "/merge-pdf",
+        description: "Combine multiple PDFs into one",
+        icon: MergeIcon,
+      },
+      {
+        label: "Rotate PDF",
+        href: "/rotate-pdf",
+        description: "Rotate pages in your PDF",
+        icon: RotateIcon,
+      },
+      {
+        label: "Remove Pages",
+        href: "/remove-pages",
+        description: "Delete unwanted pages",
+        icon: RemovePagesIcon,
+      },
+      {
+        label: "Organize PDF",
+        href: "/organize-pdf",
+        description: "Rearrange PDF pages",
+        icon: OrganizeIcon,
+      },
+    ],
+  },
+  "Optimize & Extract": {
+    icon: <CategoryIcons.OptimizeExtract className="w-5 h-5 text-[#2196F3]" />,
+    tools: [
+      {
+        label: "Compress PDF",
+        href: "/compress-pdf",
+        description: "Reduce PDF file size",
+        icon: CompressIcon,
+      },
+      {
+        label: "Grayscale PDF",
+        href: "/grayscale-pdf",
+        description: "Convert to black and white",
+        icon: GrayscaleIcon,
+      },
+      {
+        label: "Extract Pages",
+        href: "/extract-pages",
+        description: "Extract specific pages",
+        icon: ExtractPagesIcon,
+      },
+      {
+        label: "Repair PDF",
+        href: "/repair-pdf",
+        description: "Fix corrupted PDF files",
+        icon: RepairIcon,
+      },
+    ],
+  },
+  "Convert To PDF": {
+    icon: <CategoryIcons.ConvertTo className="w-5 h-5 text-[#FFC107]" />,
+    tools: [
+      {
+        label: "JPG to PDF",
+        href: "/jpg-to-pdf",
+        description: "Convert JPG images to PDF",
+        icon: JpgToPdfIcon,
+      },
+      {
+        label: "PNG to PDF",
+        href: "/png-to-pdf",
+        description: "Convert PNG images to PDF",
+        icon: PngToPdfIcon,
+      },
+      {
+        label: "Word to PDF",
+        href: "/word-to-pdf",
+        description: "Convert Word documents to PDF",
+        icon: WordToPdfIcon,
+      },
+      {
+        label: "PowerPoint to PDF",
+        href: "/ppt-to-pdf",
+        description: "Convert PowerPoint to PDF",
+        icon: PptToPdfIcon,
+      },
+      {
+        label: "Excel to PDF",
+        href: "/excel-to-pdf",
+        description: "Convert Excel sheets to PDF",
+        icon: ExcelToPdfIcon,
+      },
+      {
+        label: "TXT to PDF",
+        href: "/txt-to-pdf",
+        description: "Convert text files to PDF",
+        icon: TxtToPdfIcon,
+      },
+      {
+        label: "BMP to PDF",
+        href: "/bmp-to-pdf",
+        description: "Convert BMP images to PDF",
+        icon: BmpToPdfIcon,
+      },
+      {
+        label: "TIFF to PDF",
+        href: "/tiff-to-pdf",
+        description: "Convert TIFF images to PDF",
+        icon: TiffToPdfIcon,
+      },
+    ],
+  },
+  "Convert from PDF": {
+    icon: <CategoryIcons.ConvertFrom className="w-5 h-5 text-[#F44336]" />,
+    tools: [
+      {
+        label: "PDF to JPG",
+        href: "/pdf-to-jpg",
+        description: "Convert PDF to JPG images",
+        icon: PdfToJpgIcon,
+      },
+      {
+        label: "PDF to PNG",
+        href: "/pdf-to-png",
+        description: "Convert PDF to PNG images",
+        icon: PdfToPngIcon,
+      },
+      {
+        label: "PDF to Word",
+        href: "/pdf-to-word",
+        description: "Convert PDF to Word document",
+        icon: PdfToWordIcon,
+      },
+      {
+        label: "PDF to PowerPoint",
+        href: "/pdf-to-ppt",
+        description: "Convert PDF to PowerPoint",
+        icon: PdfToPptIcon,
+      },
+      {
+        label: "PDF to Excel",
+        href: "/pdf-to-excel",
+        description: "Convert PDF to Excel sheet",
+        icon: PdfToExcelIcon,
+      },
+      {
+        label: "PDF to TXT",
+        href: "/pdf-to-txt",
+        description: "Convert PDF to text file",
+        icon: PdfToTxtIcon,
+      },
+      {
+        label: "PDF to BMP",
+        href: "/pdf-to-bmp",
+        description: "Convert PDF to BMP images",
+        icon: PdfToBmpIcon,
+      },
+      {
+        label: "PDF to TIFF",
+        href: "/pdf-to-tiff",
+        description: "Convert PDF to TIFF images",
+        icon: PdfToTiffIcon,
+      },
+    ],
+  },
+  "PDF Security": {
+    icon: <CategoryIcons.Security className="w-5 h-5 text-[#9C27B0]" />,
+    tools: [
+      {
+        label: "Protect PDF",
+        href: "/protect-pdf",
+        description: "Add password to PDF file",
+        icon: ProtectPdfIcon,
+      },
+      {
+        label: "Unlock PDF",
+        href: "/unlock-pdf",
+        description: "Remove PDF password",
+        icon: UnlockPdfIcon,
+      },
+    ],
+  },
+};
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isToolsOpen, setIsToolsOpen] = useState(false);
@@ -92,9 +400,13 @@ const Navbar = () => {
             ))}
 
             {/* Tools Dropdown */}
-            <div className="relative" ref={dropdownRef}>
+            <div
+              className="relative hidden lg:block"
+              ref={dropdownRef}
+              onMouseEnter={() => setIsToolsOpen(true)}
+              onMouseLeave={() => setIsToolsOpen(false)}
+            >
               <button
-                onClick={handleToolsToggle}
                 className={`flex items-center space-x-1 px-4 py-2 rounded-md ${
                   isToolsOpen ? "bg-white/10" : ""
                 } hover:bg-white/10 transition-colors duration-200`}
@@ -120,35 +432,111 @@ const Navbar = () => {
               </button>
 
               {/* Desktop Dropdown Menu */}
-              {isToolsOpen && (
-                <div className="absolute right-0 mt-2 w-72 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
-                  <div className="py-2 divide-y divide-gray-100" role="menu">
-                    {Object.entries(toolsGroups).map(([category, tools]) => (
-                      <div key={category} className="px-2 py-2">
-                        <p className="px-3 py-2 text-sm font-medium text-gray-500">
-                          {category}
-                        </p>
-                        {tools.map((tool) => (
-                          <Link
-                            key={tool.href}
-                            href={tool.href}
-                            className="block px-3 py-2 rounded-md hover:bg-gray-50 transition-colors duration-200"
-                            role="menuitem"
-                            onClick={() => setIsToolsOpen(false)}
+              <div
+                className={`
+                  fixed 
+                  left-1/2 
+                  -translate-x-1/2 
+                  top-[64px]
+                  w-[95vw] 
+                  max-w-[1400px]
+                  min-h-[500px]
+                  bg-white 
+                  rounded-xl
+                  shadow-xl 
+                  transform 
+                  transition-all 
+                  duration-300 
+                  origin-top 
+                  border
+                  border-gray-100
+                  backdrop-blur-sm
+                  overflow-hidden
+                  ${
+                    isToolsOpen
+                      ? "opacity-100 translate-y-2"
+                      : "opacity-0 -translate-y-8 pointer-events-none"
+                  }
+                `}
+              >
+                <div className="p-8">
+                  <div className="flex gap-6 overflow-x-auto no-scrollbar">
+                    {Object.entries(toolsGroups).map(
+                      ([category, { icon, tools }]) => (
+                        <div
+                          key={category}
+                          className={`${
+                            tools.length > 4 ? "w-[280px]" : "w-[200px]"
+                          } flex-shrink-0 space-y-6`}
+                        >
+                          <div
+                            className={`
+                            flex items-center space-x-2 border-b border-gray-100 pb-3
+                            ${tools.length > 4 ? "justify-center" : ""}
+                          `}
                           >
-                            <span className="block text-sm font-medium text-gray-900">
-                              {tool.label}
-                            </span>
-                            <span className="block text-xs text-gray-500">
-                              {tool.description}
-                            </span>
-                          </Link>
-                        ))}
-                      </div>
-                    ))}
+                            {icon}
+                            <h3 className="font-medium text-[#002B5C] text-sm whitespace-nowrap">
+                              {category}
+                            </h3>
+                          </div>
+                          <div
+                            className={`
+                            ${
+                              tools.length > 4
+                                ? "grid grid-cols-2 gap-2"
+                                : "space-y-2"
+                            }
+                            max-h-[400px] overflow-y-auto no-scrollbar
+                          `}
+                          >
+                            {tools.map((tool) => (
+                              <Link
+                                key={tool.href}
+                                href={tool.href}
+                                className="group block"
+                                role="menuitem"
+                              >
+                                <div className="p-3 rounded-lg hover:bg-gray-50/80 transition-all duration-200">
+                                  <div className="flex items-center space-x-3">
+                                    <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-[#002B5C]/5 flex items-center justify-center group-hover:bg-[#002B5C]/10 transition-colors duration-200">
+                                      {tool.icon ? (
+                                        <tool.icon className="w-5 h-5 text-[#002B5C]" />
+                                      ) : (
+                                        <svg
+                                          className="w-5 h-5 text-[#002B5C]"
+                                          fill="none"
+                                          stroke="currentColor"
+                                          viewBox="0 0 24 24"
+                                        >
+                                          <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                                          />
+                                        </svg>
+                                      )}
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                      <p className="text-sm font-medium text-gray-900 group-hover:text-[#009688] transition-colors duration-200 truncate">
+                                        {tool.label}
+                                      </p>
+                                      <p className="text-xs text-gray-500 truncate">
+                                        {tool.description}
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      )
+                    )}
                   </div>
                 </div>
-              )}
+              </div>
             </div>
           </div>
 
@@ -244,28 +632,27 @@ const Navbar = () => {
                     {link.label}
                   </Link>
                 ))}
-              </div>
-
-              {/* Mobile Tools Section */}
-              <div className="space-y-2">
-                <p className="px-4 text-sm font-medium text-gray-400">Tools</p>
-                {Object.entries(toolsGroups).map(([category, tools]) => (
-                  <div key={category} className="space-y-1">
-                    {tools.map((tool) => (
-                      <Link
-                        key={tool.href}
-                        href={tool.href}
-                        className="block px-4 py-3 rounded-md hover:bg-white/10 transition-colors duration-200"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        <span className="block font-medium">{tool.label}</span>
-                        <span className="block text-sm text-gray-400">
-                          {tool.description}
-                        </span>
-                      </Link>
-                    ))}
-                  </div>
-                ))}
+                {/* All Tools Button for Mobile */}
+                <Link
+                  href="/tools"
+                  className="flex items-center justify-between px-4 py-3 rounded-md hover:bg-white/10 transition-colors duration-200"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <span className="font-medium">All Tools</span>
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </Link>
               </div>
             </div>
 
@@ -293,34 +680,6 @@ const Navbar = () => {
       </nav>
     </header>
   );
-};
-
-// Tools groups data
-const toolsGroups = {
-  "Popular Tools": [
-    {
-      label: "Merge PDF",
-      href: "/merge-pdf",
-      description: "Combine multiple PDFs into one",
-    },
-    {
-      label: "Split PDF",
-      href: "/split-pdf",
-      description: "Separate PDF into multiple files",
-    },
-  ],
-  "Convert PDF": [
-    {
-      label: "PDF to Word",
-      href: "/pdf-to-word",
-      description: "Convert PDF to Word document",
-    },
-    {
-      label: "PDF to Excel",
-      href: "/pdf-to-excel",
-      description: "Convert PDF to Excel spreadsheet",
-    },
-  ],
 };
 
 export default Navbar;
