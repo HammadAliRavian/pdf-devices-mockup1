@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
@@ -305,17 +306,22 @@ export default function Home() {
                       href={`/${tool.path}`}
                       className="group p-4 sm:p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
                     >
-                      <div className="flex items-start space-x-3">
+                      <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-3 sm:space-y-0 sm:space-x-3">
                         {/* Icon Container */}
-                        <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-[#002B5C]/5 flex items-center justify-center group-hover:bg-[#002B5C]/10 transition-colors duration-300">
+                        <div className="w-12 h-12 rounded-lg bg-[#002B5C]/5 flex items-center justify-center group-hover:bg-[#002B5C]/10 transition-colors duration-300">
                           {tool.icon && (
-                            <div className="w-8 h-8 text-[#002B5C]">
-                              <tool.icon className="w-full h-full" />
-                            </div>
+                            <span className="block w-8 h-8">
+                              {React.createElement(tool.icon, {
+                                className: "w-full h-full text-[#002B5C]",
+                                width: "12 md:32",
+                                height: "12md:32",
+                                "aria-hidden": "true",
+                              })}
+                            </span>
                           )}
                         </div>
                         {/* Content */}
-                        <div className="flex-1 min-w-0">
+                        <div className="flex-1 min-w-0 text-center sm:text-left">
                           <h4 className="font-medium text-[#002B5C] group-hover:text-[#009688] transition-colors duration-300 text-sm sm:text-base mb-1">
                             {tool.name}
                           </h4>
