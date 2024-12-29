@@ -1458,8 +1458,8 @@ const pdfTools = {
       },
       {
         name: "Unlock PDF",
-        path: "unlock-pdf",
-        icon: UnlockPdfIcon,
+        path: "",
+        icon: "pdf.svg",
         description: "Remove PDF password",
       },
     ],
