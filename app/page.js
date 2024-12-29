@@ -717,7 +717,6 @@ export default function Home() {
                 name: "Sarah Johnson",
                 role: "Marketing Director",
                 company: "TechCorp Inc.",
-                image: "/testimonials/sarah.jpg", // Add actual image path
                 content:
                   "PDFDevices has streamlined our document workflow significantly. The batch processing feature saves us hours every week.",
                 rating: 5,
@@ -726,7 +725,6 @@ export default function Home() {
                 name: "Michael Chen",
                 role: "Legal Consultant",
                 company: "Chen & Associates",
-                image: "/testimonials/michael.jpg", // Add actual image path
                 content:
                   "The security features are top-notch. Being able to add password protection and digital signatures has made document sharing much safer.",
                 rating: 5,
@@ -735,7 +733,6 @@ export default function Home() {
                 name: "Emily Rodriguez",
                 role: "Operations Manager",
                 company: "Global Solutions",
-                image: "/testimonials/emily.jpg", // Add actual image path
                 content:
                   "Converting files between different formats has never been easier. The interface is intuitive and the results are always perfect.",
                 rating: 5,
@@ -746,11 +743,11 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-gray-50 rounded-2xl p-8 relative"
+                className="bg-white rounded-2xl p-8 relative group hover:shadow-xl transition-all duration-300 border border-gray-100"
               >
                 {/* Quote Icon */}
                 <div className="absolute -top-4 -left-4">
-                  <div className="w-8 h-8 rounded-full bg-[#009688] flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-full bg-[#009688] flex items-center justify-center shadow-lg">
                     <svg
                       className="w-4 h-4 text-white"
                       fill="currentColor"
@@ -776,23 +773,26 @@ export default function Home() {
                 </div>
 
                 {/* Content */}
-                <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-                  "{testimonial.content}"
-                </p>
+                <div className="space-y-6">
+                  <p className="text-gray-600 text-lg leading-relaxed italic min-h-[120px]">
+                    "{testimonial.content}"
+                  </p>
 
-                {/* Author */}
-                <div className="flex items-center">
-                  <div className="w-12 h-12 rounded-full bg-[#002B5C]/10 flex items-center justify-center mr-4">
-                    <span className="text-[#002B5C] font-semibold text-lg">
-                      {testimonial.name.charAt(0)}
-                    </span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-[#002B5C]">
+                  {/* Divider */}
+                  <div className="w-16 h-1 bg-[#009688]/20 rounded-full mx-auto" />
+
+                  {/* Author */}
+                  <div className="text-center">
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#002B5C]/5 mb-3">
+                      <span className="text-[#002B5C] font-semibold text-lg">
+                        {testimonial.name.charAt(0)}
+                      </span>
+                    </div>
+                    <h4 className="font-semibold text-[#002B5C] group-hover:text-[#009688] transition-colors">
                       {testimonial.name}
                     </h4>
-                    <p className="text-sm text-gray-600">
-                      {testimonial.role} at {testimonial.company}
+                    <p className="text-sm text-gray-500">
+                      {testimonial.role} • {testimonial.company}
                     </p>
                   </div>
                 </div>
@@ -800,28 +800,31 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Trust Badges */}
+          {/* Trust Metrics */}
           <div className="mt-20">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center px-4 sm:px-6">
-              {[
-                { label: "Customer Satisfaction", value: "98%" },
-                { label: "Enterprise Clients", value: "500+" },
-                { label: "Countries Served", value: "150+" },
-                { label: "Industry Awards", value: "25+" },
-              ].map((badge, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="text-center"
-                >
-                  <div className="text-3xl font-bold text-[#002B5C] mb-2">
-                    {badge.value}
-                  </div>
-                  <div className="text-gray-600">{badge.label}</div>
-                </motion.div>
-              ))}
+            <div className="bg-gradient-to-r from-[#002B5C] to-[#1a4674] rounded-2xl overflow-hidden">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 p-8 md:p-12 relative">
+                <div className="absolute inset-0 bg-grid-white/[0.05] bg-[length:16px_16px]" />
+                {[
+                  { label: "Customer Satisfaction", value: "98%" },
+                  { label: "Enterprise Clients", value: "500+" },
+                  { label: "Countries Served", value: "150+" },
+                  { label: "Industry Awards", value: "25+" },
+                ].map((metric, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="relative text-center"
+                  >
+                    <div className="text-3xl font-bold text-[#FFF0A5] mb-2">
+                      {metric.value}
+                    </div>
+                    <div className="text-sm text-gray-300">{metric.label}</div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
