@@ -44,10 +44,7 @@ import {
 } from "@/public/icons/ConvertFromIcons";
 
 // Security Icons
-import {
-  ProtectPdfIcon,
-  UnlockPdfIcon,
-} from "@/public/icons/SecurityIcons";
+import { ProtectPdfIcon, UnlockPdfIcon } from "@/public/icons/SecurityIcons";
 
 // Category Icons
 const CategoryIcons = {
@@ -377,12 +374,40 @@ const Navbar = () => {
           {/* Logo Section */}
           <Link
             href="/"
-            className="flex items-center space-x-2 hover:opacity-90 transition-opacity"
-            aria-label="PDFTools Home"
+            className="flex items-center space-x-3 hover:opacity-90 transition-opacity"
+            aria-label="PDFDevices Home"
           >
-            <span className="text-xl md:text-2xl font-bold tracking-tight">
-              PDFTools
-            </span>
+            {/* Logo Icon */}
+            <div className="relative w-10 h-10 flex items-center justify-center">
+              <svg
+                className="w-full h-full"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  x="4"
+                  y="4"
+                  width="32"
+                  height="32"
+                  rx="8"
+                  className="fill-[#009688]"
+                />
+                <path d="M12 14h16l-4 4H16l-4-4z" className="fill-white/90" />
+                <path d="M14 20h12l-4 4h-4l-4-4z" className="fill-white/80" />
+                <path d="M16 26h8l-2 2h-4l-2-2z" className="fill-white/70" />
+              </svg>
+            </div>
+
+            {/* Brand Text */}
+            <div className="flex flex-col">
+              <span className="text-xl md:text-2xl font-bold tracking-tight bg-gradient-to-r from-white to-[#FFF0A5] bg-clip-text text-transparent">
+                PDFDevices
+              </span>
+              <span className="text-[10px] md:text-xs text-[#FFF0A5]/80 tracking-wider font-medium hidden sm:block">
+                PROFESSIONAL PDF TOOLS
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
