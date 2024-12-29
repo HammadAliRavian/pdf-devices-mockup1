@@ -714,17 +714,17 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 sm:px-6">
             {[
               {
-                name: "Sarah Johnson",
-                role: "Marketing Director",
-                company: "TechCorp Inc.",
+                name: "Dalma",
+                role: "CEO",
+                company: "PDFDevices",
                 content:
                   "PDFDevices has streamlined our document workflow significantly. The batch processing feature saves us hours every week.",
                 rating: 5,
               },
               {
-                name: "Michael Chen",
-                role: "Legal Consultant",
-                company: "Chen & Associates",
+                name: "Hammad Ali",
+                role: "Designer",
+                company: "PDFDevices",
                 content:
                   "The security features are top-notch. Being able to add password protection and digital signatures has made document sharing much safer.",
                 rating: 5,
