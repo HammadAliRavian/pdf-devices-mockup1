@@ -52,10 +52,7 @@ import {
 } from "@/public/icons/ConvertFromIcons";
 
 // Security Icons
-import {
-  ProtectPdfIcon,
-  UnlockPdfIcon,
-} from "@/public/icons/SecurityIcons";
+import { ProtectPdfIcon, UnlockPdfIcon } from "@/public/icons/SecurityIcons";
 
 export default function Home() {
   const [dragActive, setDragActive] = useState(false);
@@ -207,28 +204,34 @@ export default function Home() {
                     <Link
                       key={index}
                       href={`/${action.path}`}
-                      className="group relative overflow-hidden p-5 rounded-xl bg-white/5 hover:bg-white/10 backdrop-blur-sm transition-all duration-300 text-center"
+                      className="group relative overflow-hidden p-6 rounded-xl bg-white/5 hover:bg-white/10 backdrop-blur-sm transition-all duration-300"
                     >
                       {/* Background Gradient Effect */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                      <div className="relative flex flex-col items-center space-y-3">
-                        <div className="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors duration-300">
-                          <action.icon className="w-6 h-6 text-[#FFF0A5]" />
+                      <div className="relative flex flex-col items-center space-y-4">
+                        {/* Icon Container */}
+                        <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                          <div className="w-7 h-7 text-[#FFF0A5]">
+                            <action.icon className="w-full h-full" />
+                          </div>
                         </div>
 
-                        <div>
-                          <h3 className="font-medium text-white text-lg mb-1 group-hover:text-[#FFF0A5] transition-colors duration-200">
+                        {/* Content */}
+                        <div className="text-center space-y-2">
+                          <h3 className="font-semibold text-white text-lg group-hover:text-[#FFF0A5] transition-colors duration-200">
                             {action.name}
                           </h3>
-                          <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-200 line-clamp-2">
+                          <p className="text-sm text-gray-300 group-hover:text-white transition-colors duration-200 line-clamp-2">
                             {action.description}
                           </p>
                         </div>
 
-                        {/*Arrow Style */}
-                        <div className="mt-2 flex items-center justify-center space-x-2 text-gray-400 group-hover:text-[#FFF0A5] transition-colors duration-200">
-                          <span className="text-sm">Get Started</span>
+                        {/* Action Indicator */}
+                        <div className="flex items-center justify-center space-x-2 text-[#FFF0A5] opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                          <span className="text-sm font-medium">
+                            Get Started
+                          </span>
                           <svg
                             className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
                             fill="none"
@@ -244,6 +247,9 @@ export default function Home() {
                           </svg>
                         </div>
                       </div>
+
+                      {/* Hover Border Effect */}
+                      <div className="absolute inset-0 border border-white/10 rounded-xl group-hover:border-[#FFF0A5]/30 transition-colors duration-300" />
                     </Link>
                   ))}
                 </div>
@@ -273,7 +279,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Tools Section */}
       <section id="tools-section" className="py-12 sm:py-20 bg-[#F0F0F0]">
         <div className="container-wrapper">
           <div className="text-center mb-12">
@@ -300,13 +306,15 @@ export default function Home() {
                       className="group p-4 sm:p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
                     >
                       <div className="flex items-start space-x-3">
-                        <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#002B5C]/5 flex items-center justify-center group-hover:bg-[#002B5C]/10 transition-colors duration-300">
+                        {/* Icon Container */}
+                        <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-[#002B5C]/5 flex items-center justify-center group-hover:bg-[#002B5C]/10 transition-colors duration-300">
                           {tool.icon && (
-                            <div className="w-5 h-5 text-[#002B5C]">
-                              <tool.icon />
+                            <div className="w-8 h-8 text-[#002B5C]">
+                              <tool.icon className="w-full h-full" />
                             </div>
                           )}
                         </div>
+                        {/* Content */}
                         <div className="flex-1 min-w-0">
                           <h4 className="font-medium text-[#002B5C] group-hover:text-[#009688] transition-colors duration-300 text-sm sm:text-base mb-1">
                             {tool.name}

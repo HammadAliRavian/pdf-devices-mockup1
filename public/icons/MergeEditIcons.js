@@ -61,7 +61,6 @@ export const DeletePdfIcon = ({ className = "w-6 h-6" }) => (
   </svg>
 );
 
-
 export const MergePdfIcon = ({ className = "w-6 h-6" }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none">
     <defs>

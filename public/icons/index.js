@@ -1,64 +1,134 @@
-// Basic action icons
+// Basic action icons with vibrant gradients and fills
 export const MergeIcon = ({ className = "w-6 h-6" }) => (
-  <svg
-    className={className}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-  >
+  <svg className={className} viewBox="0 0 24 24" fill="none">
+    <defs>
+      <linearGradient id="mergeMainGradient" x1="0" y1="0" x2="24" y2="24">
+        <stop offset="0%" stopColor="#4F46E5" />
+        <stop offset="100%" stopColor="#6366F1" />
+      </linearGradient>
+    </defs>
+    <rect
+      x="3"
+      y="3"
+      width="18"
+      height="18"
+      rx="2"
+      fill="currentColor"
+      fillOpacity="0.1"
+      stroke="currentColor"
+      className="text-[#4F46E5] dark:text-[#6366F1]"
+      strokeWidth={2}
+    />
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
-      strokeWidth={2}
-      d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"
+      strokeWidth={2.5}
+      d="M12 3v18M7 8l5 5 5-5"
+      stroke="currentColor"
+      className="text-[#4F46E5] dark:text-[#6366F1]"
     />
   </svg>
 );
 
 export const SplitIcon = ({ className = "w-6 h-6" }) => (
-  <svg
-    className={className}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-  >
+  <svg className={className} viewBox="0 0 24 24" fill="none">
+    <defs>
+      <linearGradient id="splitGradient" x1="0" y1="0" x2="24" y2="24">
+        <stop offset="0%" stopColor="#EC4899" />
+        <stop offset="100%" stopColor="#DB2777" />
+      </linearGradient>
+      <linearGradient id="splitFillGradient" x1="0" y1="0" x2="24" y2="24">
+        <stop offset="0%" stopColor="#F472B6" stopOpacity="0.2" />
+        <stop offset="100%" stopColor="#EC4899" stopOpacity="0.1" />
+      </linearGradient>
+    </defs>
+    <rect
+      x="3"
+      y="3"
+      width="18"
+      height="18"
+      rx="2"
+      fill="url(#splitFillGradient)"
+      stroke="url(#splitGradient)"
+      strokeWidth={2}
+    />
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
-      strokeWidth={2}
-      d="M8 7v10m0-10H6m2 0h2m-2 10H6m2 0h2m6-10v10m0-10h-2m2 0h2m-2 10h-2m2 0h2"
+      strokeWidth={2.5}
+      d="M12 3v18M7 16l5-5 5 5"
+      stroke="url(#splitGradient)"
     />
   </svg>
 );
 
 export const CompressIcon = ({ className = "w-6 h-6" }) => (
-  <svg
-    className={className}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-  >
+  <svg className={className} viewBox="0 0 24 24" fill="none">
+    <defs>
+      <linearGradient id="compressMainGradient" x1="0" y1="0" x2="24" y2="24">
+        <stop offset="0%" stopColor="#10B981" />
+        <stop offset="100%" stopColor="#059669" />
+      </linearGradient>
+      <linearGradient id="compressFillGradient" x1="0" y1="0" x2="24" y2="24">
+        <stop offset="0%" stopColor="#34D399" stopOpacity="0.2" />
+        <stop offset="100%" stopColor="#10B981" stopOpacity="0.1" />
+      </linearGradient>
+    </defs>
+    <rect
+      x="3"
+      y="3"
+      width="18"
+      height="18"
+      rx="2"
+      fill="url(#compressFillGradient)"
+      stroke="url(#compressMainGradient)"
+      strokeWidth={2}
+    />
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
-      strokeWidth={2}
-      d="M19 9l-7 7-7-7m14-4l-7 7-7-7"
+      strokeWidth={2.5}
+      d="M8 8h8M8 12h8M8 16h8"
+      stroke="url(#compressMainGradient)"
+    />
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2.5}
+      d="M4 12h2M18 12h2"
+      stroke="url(#compressMainGradient)"
     />
   </svg>
 );
 
 export const ConvertIcon = ({ className = "w-6 h-6" }) => (
-  <svg
-    className={className}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-  >
+  <svg className={className} viewBox="0 0 24 24" fill="none">
+    <defs>
+      <linearGradient id="convertGradient" x1="0" y1="0" x2="24" y2="24">
+        <stop offset="0%" stopColor="#F59E0B" />
+        <stop offset="100%" stopColor="#D97706" />
+      </linearGradient>
+      <linearGradient id="convertFillGradient" x1="0" y1="0" x2="24" y2="24">
+        <stop offset="0%" stopColor="#FBBF24" stopOpacity="0.2" />
+        <stop offset="100%" stopColor="#F59E0B" stopOpacity="0.1" />
+      </linearGradient>
+    </defs>
+    <rect
+      x="3"
+      y="3"
+      width="18"
+      height="18"
+      rx="2"
+      fill="url(#convertFillGradient)"
+      stroke="url(#convertGradient)"
+      strokeWidth={2}
+    />
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
-      strokeWidth={2}
-      d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+      strokeWidth={2.5}
+      d="M7 8l5 5-5 5M12 8l5 5-5 5"
+      stroke="url(#convertGradient)"
     />
   </svg>
 );
