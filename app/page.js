@@ -333,59 +333,80 @@ export default function Home() {
         </div>
       </section>
 
-      {/* After Features Section */}
-      <section className="py-20 bg-white">
+      {/* Why Choose PDF Devices? */}
+      <section className="py-20 bg-white overflow-hidden">
         <div className="container-wrapper">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Why Choose PDF Devices?</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-sm font-semibold text-[#009688] tracking-wider uppercase mb-4 block">
+              Why Choose Us
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#002B5C]">
+              Why Choose PDF Devices?
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto px-4">
               Experience the most comprehensive PDF solution suite designed for
               modern professionals.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-[#F0F0F0] p-8 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4">
-                Enterprise-Grade Security
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 px-4 sm:px-6">
+            {/* Features Column */}
+            <div className="space-y-6">
+              <h3 className="text-xl font-semibold text-[#002B5C] mb-8">
+                Professional Features
               </h3>
-              <p className="text-gray-600 mb-6">
-                Bank-level encryption and secure document handling ensure your
-                sensitive information stays protected.
-              </p>
-              <ul className="space-y-3">
-                {securityFeatures.map((feature, index) => (
-                  <li key={index} className="flex items-center space-x-2">
-                    <svg
-                      className="w-5 h-5 text-[#009688]"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    <span>{feature}</span>
-                  </li>
+              <div className="grid gap-6">
+                {features.map((feature, index) => (
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    key={index}
+                    className="flex items-start space-x-4 p-6 rounded-xl bg-gray-50 hover:bg-gray-100 transition-all duration-300 group"
+                  >
+                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-[#009688]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <svg
+                        className="w-6 h-6 text-[#009688]"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-medium text-[#002B5C] mb-2 group-hover:text-[#009688] transition-colors">
+                        {feature.title}
+                      </h4>
+                      <p className="text-gray-600">{feature.description}</p>
+                    </div>
+                  </motion.div>
                 ))}
-              </ul>
+              </div>
             </div>
-            <div className="bg-[#F0F0F0] p-8 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4">
-                Seamless Integration
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Works perfectly with your existing workflow and favorite
-                applications.
-              </p>
-              <ul className="space-y-3">
-                {integrationFeatures.map((feature, index) => (
-                  <li key={index} className="flex items-center space-x-2">
+
+            {/* Security & Integration */}
+            <div className="space-y-8">
+              {/* Security Features */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="p-8 rounded-xl bg-gradient-to-br from-[#002B5C] to-[#1a4674] relative overflow-hidden group"
+              >
+                {/* Background Pattern */}
+                <div className="absolute inset-0 opacity-10 bg-grid-white/[0.1] bg-[length:16px_16px]" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#002B5C]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                <div className="relative">
+                  <h3 className="text-xl font-semibold text-white mb-6 flex items-center">
                     <svg
-                      className="w-5 h-5 text-[#009688]"
+                      className="w-5 h-5 mr-2 text-[#FFF0A5]"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -394,13 +415,96 @@ export default function Home() {
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeWidth={2}
-                        d="M5 13l4 4L19 7"
+                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
                       />
                     </svg>
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
+                    Enterprise-Grade Security
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {securityFeatures.map((feature, index) => (
+                      <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3, delay: index * 0.1 }}
+                        key={index}
+                        className="flex items-center space-x-3 text-white/90 group"
+                      >
+                        <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                          <svg
+                            className="w-4 h-4 text-[#FFF0A5]"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M5 13l4 4L19 7"
+                            />
+                          </svg>
+                        </div>
+                        <span className="text-sm font-medium">{feature}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Integration Features */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="p-8 rounded-xl bg-gray-50 border border-gray-100 hover:border-[#009688]/20 transition-colors duration-300"
+              >
+                <h3 className="text-xl font-semibold text-[#002B5C] mb-6 flex items-center">
+                  <svg
+                    className="w-5 h-5 mr-2 text-[#009688]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
+                    />
+                  </svg>
+                  Seamless Integration
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {integrationFeatures.map((feature, index) => (
+                    <motion.div
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.1 }}
+                      key={index}
+                      className="flex items-center space-x-3 text-gray-600 group"
+                    >
+                      <div className="w-8 h-8 rounded-lg bg-[#009688]/10 flex items-center justify-center group-hover:bg-[#009688]/20 transition-colors">
+                        <svg
+                          className="w-4 h-4 text-[#009688]"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      </div>
+                      <span className="text-sm font-medium group-hover:text-[#002B5C] transition-colors">
+                        {feature}
+                      </span>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>

@@ -2,91 +2,177 @@
 import Link from "next/link";
 
 const Footer = () => {
-  const footerLinks = {
-    Product: [
-      { label: "Features", href: "/features" },
-      { label: "Pricing", href: "/pricing" },
-      { label: "Resources", href: "/resources" },
-    ],
-    Company: [
-      { label: "About Us", href: "/about" },
-      { label: "Contact", href: "/contact" },
-      { label: "Blog", href: "/blog" },
-    ],
-    Legal: [
-      { label: "Privacy Policy", href: "/privacy" },
-      { label: "Terms of Service", href: "/terms" },
-      { label: "Cookie Policy", href: "/cookies" },
-    ],
-  };
-
   return (
-    <footer className="bg-[#29323C] text-white py-12">
+    <footer className="bg-[#002B5C] text-white">
       <div className="container-wrapper">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Brand Section */}
-          <div className="space-y-4">
-            <Link href="/" className="flex items-center space-x-2">
-              <span className="text-xl font-bold">PDFTools</span>
-            </Link>
-            <p className="text-[#F0F0F0] text-sm">
-              Professional PDF solutions for all your document needs.
-            </p>
-          </div>
+        {/* Main Footer Content */}
+        <div className="py-12 lg:py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+            {/* Brand Section */}
+            <div className="space-y-6">
+              {/* Logo */}
+              <Link href="/" className="flex items-center space-x-3">
+                <div className="relative w-10 h-10">
+                  <svg viewBox="0 0 40 40" fill="none">
+                    <rect
+                      x="4"
+                      y="4"
+                      width="32"
+                      height="32"
+                      rx="8"
+                      className="fill-[#009688]"
+                    />
+                    <path
+                      d="M12 14h16l-4 4H16l-4-4z"
+                      className="fill-white/90"
+                    />
+                    <path
+                      d="M14 20h12l-4 4h-4l-4-4z"
+                      className="fill-white/80"
+                    />
+                    <path
+                      d="M16 26h8l-2 2h-4l-2-2z"
+                      className="fill-white/70"
+                    />
+                  </svg>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-xl font-bold tracking-tight bg-gradient-to-r from-white to-[#FFF0A5] bg-clip-text text-transparent">
+                    PDFDevices
+                  </span>
+                  <span className="text-[10px] text-[#FFF0A5]/80 tracking-wider font-medium">
+                    PROFESSIONAL PDF TOOLS
+                  </span>
+                </div>
+              </Link>
+              <p className="text-gray-300 max-w-md">
+                Professional PDF tools to manage, edit, and convert your
+                documents with ease. Secure, reliable, and easy to use.
+              </p>
+            </div>
 
-          {/* Links Sections */}
-          {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title}>
-              <h3 className="font-semibold text-lg mb-4">{title}</h3>
-              <ul className="space-y-2">
-                {links.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-[#F0F0F0] hover:text-[#FFF0A5] transition-colors duration-300 text-sm"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
+            {/* Quick Links */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold text-white">Quick Links</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link
+                    href="/tools"
+                    className="text-gray-300 hover:text-[#FFF0A5] transition-colors"
+                  >
+                    All Tools
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/pricing"
+                    className="text-gray-300 hover:text-[#FFF0A5] transition-colors"
+                  >
+                    Pricing
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/blog"
+                    className="text-gray-300 hover:text-[#FFF0A5] transition-colors"
+                  >
+                    Blog
+                  </Link>
+                </li>
               </ul>
             </div>
-          ))}
+
+            {/* Tools */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold text-white">
+                Popular Tools
+              </h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link
+                    href="/merge-pdf"
+                    className="text-gray-300 hover:text-[#FFF0A5] transition-colors"
+                  >
+                    Merge PDF
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/compress-pdf"
+                    className="text-gray-300 hover:text-[#FFF0A5] transition-colors"
+                  >
+                    Compress PDF
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/convert-pdf"
+                    className="text-gray-300 hover:text-[#FFF0A5] transition-colors"
+                  >
+                    Convert PDF
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Support */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold text-white">Support</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link
+                    href="/contact"
+                    className="text-gray-300 hover:text-[#FFF0A5] transition-colors"
+                  >
+                    Contact Us
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/help"
+                    className="text-gray-300 hover:text-[#FFF0A5] transition-colors"
+                  >
+                    Help Center
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/privacy"
+                    className="text-gray-300 hover:text-[#FFF0A5] transition-colors"
+                  >
+                    Privacy Policy
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="mt-12 pt-8 border-t border-gray-700">
+        {/* Bottom Bar */}
+        <div className="border-t border-white/10 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-sm text-[#F0F0F0]">
-              © {new Date().getFullYear()} PDF Devices. All rights reserved.
+            <p className="text-gray-400 text-sm">
+              © {new Date().getFullYear()} PDFDevices. All rights reserved.
             </p>
-            <div className="flex space-x-6">
-              <a
-                href="#"
-                className="text-[#F0F0F0] hover:text-[#FFF0A5]"
-                aria-label="Twitter"
+            <div className="flex flex-wrap justify-center gap-6">
+              <Link
+                href="/terms"
+                className="text-gray-400 hover:text-[#FFF0A5] text-sm transition-colors"
               >
-                <svg
-                  className="h-6 w-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-                </svg>
-              </a>
-              <a
-                href="#"
-                className="text-[#F0F0F0] hover:text-[#FFF0A5]"
-                aria-label="LinkedIn"
+                Terms of Service
+              </Link>
+              <Link
+                href="/privacy"
+                className="text-gray-400 hover:text-[#FFF0A5] text-sm transition-colors"
               >
-                <svg
-                  className="h-6 w-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                </svg>
-              </a>
+                Privacy Policy
+              </Link>
+              <Link
+                href="/cookies"
+                className="text-gray-400 hover:text-[#FFF0A5] text-sm transition-colors"
+              >
+                Cookie Policy
+              </Link>
             </div>
           </div>
         </div>
