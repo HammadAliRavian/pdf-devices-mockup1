@@ -3,49 +3,51 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 
-// Basic Icons
-import { MergeIcon, CompressIcon } from "./icons";
-
 // Merge & Edit Icons
 import {
-  RotateIcon,
-  RemovePagesIcon,
-  OrganizeIcon,
-} from "./icons/OrganizeIcons";
+  MergePdfIcon,
+  RotatePdfIcon,
+  DeletePdfIcon,
+  ReorderPdfIcon,
+} from "@/public/icons/MergeEditIcons";
 
-// Optimize & Extract Icons
+// Optimize Icons
 import {
-  GrayscaleIcon,
-  ExtractPagesIcon,
-  RepairIcon,
-} from "./icons/OptimizeIcons";
+  CompressPdfIcon,
+  GrayscalePdfIcon,
+  ExtractPdfIcon,
+  RepairPdfIcon,
+} from "@/public/icons/OptimizeIcons";
 
-// Convert To PDF Icons
+// Convert To Icons
 import {
-  WordToPdfIcon,
-  ExcelToPdfIcon,
-  PptToPdfIcon,
   JpgToPdfIcon,
   PngToPdfIcon,
-  TxtToPdfIcon,
   BmpToPdfIcon,
   TiffToPdfIcon,
-} from "./icons/ConvertToIcons";
+  WordToPdfIcon,
+  PptToPdfIcon,
+  TxtToPdfIcon,
+  ExcelToPdfIcon,
+} from "@/public/icons/ConvertToIcons";
 
-// Convert From PDF Icons
+// Convert From Icons
 import {
-  PdfToWordIcon,
-  PdfToExcelIcon,
-  PdfToPptIcon,
   PdfToJpgIcon,
   PdfToPngIcon,
-  PdfToTxtIcon,
   PdfToBmpIcon,
   PdfToTiffIcon,
-} from "./icons/ConvertFromIcons";
+  PdfToWordIcon,
+  PdfToPptIcon,
+  PdfToTxtIcon,
+  PdfToZipIcon,
+} from "@/public/icons/ConvertFromIcons";
 
 // Security Icons
-import { ProtectPdfIcon, UnlockPdfIcon } from "./icons/SecurityIcons";
+import {
+  ProtectPdfIcon,
+  UnlockPdfIcon,
+} from "@/public/icons/SecurityIcons";
 
 // Category Icons
 const CategoryIcons = {
@@ -135,25 +137,25 @@ const toolsGroups = {
         label: "Merge PDF",
         href: "/merge-pdf",
         description: "Combine multiple PDFs into one",
-        icon: MergeIcon,
+        icon: MergePdfIcon,
       },
       {
         label: "Rotate PDF",
         href: "/rotate-pdf",
         description: "Rotate pages in your PDF",
-        icon: RotateIcon,
+        icon: RotatePdfIcon,
       },
       {
         label: "Remove Pages",
         href: "/remove-pages",
         description: "Delete unwanted pages",
-        icon: RemovePagesIcon,
+        icon: DeletePdfIcon,
       },
       {
         label: "Organize PDF",
         href: "/organize-pdf",
         description: "Rearrange PDF pages",
-        icon: OrganizeIcon,
+        icon: ReorderPdfIcon,
       },
     ],
   },
@@ -164,25 +166,25 @@ const toolsGroups = {
         label: "Compress PDF",
         href: "/compress-pdf",
         description: "Reduce PDF file size",
-        icon: CompressIcon,
+        icon: CompressPdfIcon,
       },
       {
         label: "Grayscale PDF",
         href: "/grayscale-pdf",
         description: "Convert to black and white",
-        icon: GrayscaleIcon,
+        icon: GrayscalePdfIcon,
       },
       {
         label: "Extract Pages",
         href: "/extract-pages",
         description: "Extract specific pages",
-        icon: ExtractPagesIcon,
+        icon: ExtractPdfIcon,
       },
       {
         label: "Repair PDF",
         href: "/repair-pdf",
         description: "Fix corrupted PDF files",
-        icon: RepairIcon,
+        icon: RepairPdfIcon,
       },
     ],
   },
@@ -202,6 +204,18 @@ const toolsGroups = {
         icon: PngToPdfIcon,
       },
       {
+        label: "BMP to PDF",
+        href: "/bmp-to-pdf",
+        description: "Convert BMP images to PDF",
+        icon: BmpToPdfIcon,
+      },
+      {
+        label: "TIFF to PDF",
+        href: "/tiff-to-pdf",
+        description: "Convert TIFF images to PDF",
+        icon: TiffToPdfIcon,
+      },
+      {
         label: "Word to PDF",
         href: "/word-to-pdf",
         description: "Convert Word documents to PDF",
@@ -214,28 +228,16 @@ const toolsGroups = {
         icon: PptToPdfIcon,
       },
       {
-        label: "Excel to PDF",
-        href: "/excel-to-pdf",
-        description: "Convert Excel sheets to PDF",
-        icon: ExcelToPdfIcon,
-      },
-      {
         label: "TXT to PDF",
         href: "/txt-to-pdf",
         description: "Convert text files to PDF",
         icon: TxtToPdfIcon,
       },
       {
-        label: "BMP to PDF",
-        href: "/bmp-to-pdf",
-        description: "Convert BMP images to PDF",
-        icon: BmpToPdfIcon,
-      },
-      {
-        label: "TIFF to PDF",
-        href: "/tiff-to-pdf",
-        description: "Convert TIFF images to PDF",
-        icon: TiffToPdfIcon,
+        label: "Excel to PDF",
+        href: "/excel-to-pdf",
+        description: "Convert Excel sheets to PDF",
+        icon: ExcelToPdfIcon,
       },
     ],
   },
@@ -255,6 +257,18 @@ const toolsGroups = {
         icon: PdfToPngIcon,
       },
       {
+        label: "PDF to BMP",
+        href: "/pdf-to-bmp",
+        description: "Convert PDF to BMP images",
+        icon: PdfToBmpIcon,
+      },
+      {
+        label: "PDF to TIFF",
+        href: "/pdf-to-tiff",
+        description: "Convert PDF to TIFF images",
+        icon: PdfToTiffIcon,
+      },
+      {
         label: "PDF to Word",
         href: "/pdf-to-word",
         description: "Convert PDF to Word document",
@@ -267,28 +281,16 @@ const toolsGroups = {
         icon: PdfToPptIcon,
       },
       {
-        label: "PDF to Excel",
-        href: "/pdf-to-excel",
-        description: "Convert PDF to Excel sheet",
-        icon: PdfToExcelIcon,
-      },
-      {
         label: "PDF to TXT",
         href: "/pdf-to-txt",
         description: "Convert PDF to text file",
         icon: PdfToTxtIcon,
       },
       {
-        label: "PDF to BMP",
-        href: "/pdf-to-bmp",
-        description: "Convert PDF to BMP images",
-        icon: PdfToBmpIcon,
-      },
-      {
-        label: "PDF to TIFF",
-        href: "/pdf-to-tiff",
-        description: "Convert PDF to TIFF images",
-        icon: PdfToTiffIcon,
+        label: "PDF to ZIP",
+        href: "/pdf-to-zip",
+        description: "Convert PDF to ZIP file",
+        icon: PdfToZipIcon,
       },
     ],
   },

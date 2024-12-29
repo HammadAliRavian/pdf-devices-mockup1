@@ -2,40 +2,44 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
+
+// Basic action icons
 import {
   MergeIcon,
   SplitIcon,
   CompressIcon,
   ConvertIcon,
-} from "./components/icons";
+} from "@/public/icons";
+
+// Merge & Edit Icons
 import {
-  RotateIcon,
-  ReorderIcon,
-  DeleteIcon,
-  ExtractIcon,
-} from "./components/icons/OrganizeIcons";
+  MergePdfIcon,
+  RotatePdfIcon,
+  DeletePdfIcon,
+  ReorderPdfIcon,
+} from "@/public/icons/MergeEditIcons";
+
+// Optimize Icons
 import {
-  PasswordIcon,
-  SignIcon,
-  WatermarkIcon,
-  EncryptIcon,
-} from "./components/icons/ProtectIcons";
-import {
-  WordIcon,
-  ExcelIcon,
-  PowerPointIcon,
-  ImageIcon,
-} from "./components/icons/ConvertIcons";
+  CompressPdfIcon,
+  GrayscalePdfIcon,
+  ExtractPdfIcon,
+  RepairPdfIcon,
+} from "@/public/icons/OptimizeIcons";
+
+// Convert To Icons
 import {
   JpgToPdfIcon,
   PngToPdfIcon,
   BmpToPdfIcon,
   TiffToPdfIcon,
   WordToPdfIcon,
-  PowerPointToPdfIcon,
+  PptToPdfIcon,
   TxtToPdfIcon,
   ExcelToPdfIcon,
-} from "./components/icons/ConvertToIcons";
+} from "@/public/icons/ConvertToIcons";
+
+// Convert From Icons
 import {
   PdfToJpgIcon,
   PdfToPngIcon,
@@ -44,10 +48,14 @@ import {
   PdfToWordIcon,
   PdfToPptIcon,
   PdfToTxtIcon,
-  PdfToExcelIcon,
-} from "./components/icons/ConvertFromIcons";
-import { GrayscaleIcon, RepairIcon } from "./components/icons/OptimizeIcons";
-import { ProtectIcon, UnlockIcon } from "./components/icons/SecurityIcons";
+  PdfToZipIcon,
+} from "@/public/icons/ConvertFromIcons";
+
+// Security Icons
+import {
+  ProtectPdfIcon,
+  UnlockPdfIcon,
+} from "@/public/icons/SecurityIcons";
 
 export default function Home() {
   const [dragActive, setDragActive] = useState(false);
@@ -194,23 +202,47 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: 0.4 }}
                 className="pt-12"
               >
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-3xl mx-auto">
-                  {quickActions.slice(0, 3).map((action, index) => (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                  {quickActions.map((action, index) => (
                     <Link
                       key={index}
                       href={`/${action.path}`}
-                      className="group p-4 rounded-xl bg-white/5 hover:bg-white/10 backdrop-blur-sm transition-all duration-300 flex items-center space-x-4"
+                      className="group relative overflow-hidden p-5 rounded-xl bg-white/5 hover:bg-white/10 backdrop-blur-sm transition-all duration-300 text-center"
                     >
-                      <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors duration-300">
-                        <action.icon className="w-5 h-5 sm:w-6 sm:h-6 text-[#FFF0A5]" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <span className="block font-medium text-white text-base sm:text-lg mb-0.5 truncate">
-                          {action.name}
-                        </span>
-                        <span className="text-xs sm:text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-200 line-clamp-1">
-                          {action.description}
-                        </span>
+                      {/* Background Gradient Effect */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                      <div className="relative flex flex-col items-center space-y-3">
+                        <div className="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors duration-300">
+                          <action.icon className="w-6 h-6 text-[#FFF0A5]" />
+                        </div>
+
+                        <div>
+                          <h3 className="font-medium text-white text-lg mb-1 group-hover:text-[#FFF0A5] transition-colors duration-200">
+                            {action.name}
+                          </h3>
+                          <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-200 line-clamp-2">
+                            {action.description}
+                          </p>
+                        </div>
+
+                        {/*Arrow Style */}
+                        <div className="mt-2 flex items-center justify-center space-x-2 text-gray-400 group-hover:text-[#FFF0A5] transition-colors duration-200">
+                          <span className="text-sm">Get Started</span>
+                          <svg
+                            className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M14 5l7 7-7 7"
+                            />
+                          </svg>
+                        </div>
                       </div>
                     </Link>
                   ))}
@@ -395,17 +427,17 @@ const features = [
     title: "Edit PDFs",
     description:
       "Easily modify text, images, and layouts in your PDF documents.",
-    icon: "edit-document",
+    // icon: ReorderIcon,
   },
   {
     title: "Convert Files",
     description: "Convert PDFs to and from various file formats with ease.",
-    icon: "convert-file",
+    // icon: ConvertIcon,
   },
   {
     title: "Secure Documents",
     description: "Protect your PDFs with encryption and password protection.",
-    icon: "secure-file",
+    // icon: ProtectPdfIcon,
   },
 ];
 
@@ -428,7 +460,7 @@ const quickActions = [
     name: "Merge PDF",
     path: "merge-pdf",
     icon: MergeIcon,
-    description: "Combine multiple PDFs into one",
+    description: "Combine multiple PDFs",
   },
   {
     name: "Split PDF",
@@ -457,25 +489,25 @@ const pdfTools = {
       {
         name: "Merge PDF",
         path: "merge-pdf",
-        icon: MergeIcon,
+        icon: MergePdfIcon,
         description: "Combine multiple PDFs into one file",
       },
       {
         name: "Rotate PDF",
         path: "rotate-pdf",
-        icon: RotateIcon,
+        icon: RotatePdfIcon,
         description: "Rotate pages in your PDF file",
       },
       {
         name: "Remove Pages",
         path: "remove-pages",
-        icon: DeleteIcon,
+        icon: DeletePdfIcon,
         description: "Delete unwanted pages from PDF",
       },
       {
         name: "Organize PDF",
         path: "organize-pdf",
-        icon: ReorderIcon,
+        icon: ReorderPdfIcon,
         description: "Rearrange pages in your PDF",
       },
     ],
@@ -486,25 +518,25 @@ const pdfTools = {
       {
         name: "Compress PDF",
         path: "compress-pdf",
-        icon: CompressIcon,
+        icon: CompressPdfIcon,
         description: "Reduce PDF file size",
       },
       {
         name: "Grayscale PDF",
         path: "grayscale-pdf",
-        icon: GrayscaleIcon,
-        description: "Convert PDF to black and white",
+        icon: GrayscalePdfIcon,
+        description: "Convert to black and white",
       },
       {
-        name: "Extract PDF Pages",
+        name: "Extract Pages",
         path: "extract-pages",
-        icon: ExtractIcon,
-        description: "Extract specific pages from PDF",
+        icon: ExtractPdfIcon,
+        description: "Extract specific pages",
       },
       {
         name: "Repair PDF",
         path: "repair-pdf",
-        icon: RepairIcon,
+        icon: RepairPdfIcon,
         description: "Fix corrupted PDF files",
       },
     ],
@@ -524,30 +556,7 @@ const pdfTools = {
         icon: PngToPdfIcon,
         description: "Convert PNG images to PDF",
       },
-      {
-        name: "Word to PDF",
-        path: "word-to-pdf",
-        icon: WordToPdfIcon,
-        description: "Convert Word documents to PDF",
-      },
-      {
-        name: "PowerPoint to PDF",
-        path: "ppt-to-pdf",
-        icon: PowerPointToPdfIcon,
-        description: "Convert PowerPoint to PDF",
-      },
-      {
-        name: "Excel to PDF",
-        path: "excel-to-pdf",
-        icon: ExcelToPdfIcon,
-        description: "Convert Excel sheets to PDF",
-      },
-      {
-        name: "TXT to PDF",
-        path: "txt-to-pdf",
-        icon: TxtToPdfIcon,
-        description: "Convert text files to PDF",
-      },
+
       {
         name: "BMP to PDF",
         path: "bmp-to-pdf",
@@ -560,10 +569,34 @@ const pdfTools = {
         icon: TiffToPdfIcon,
         description: "Convert TIFF images to PDF",
       },
+      {
+        name: "Word to PDF",
+        path: "word-to-pdf",
+        icon: WordToPdfIcon,
+        description: "Convert Word documents to PDF",
+      },
+      {
+        name: "PowerPoint to PDF",
+        path: "ppt-to-pdf",
+        icon: PptToPdfIcon,
+        description: "Convert PowerPoint to PDF",
+      },
+      {
+        name: "TXT to PDF",
+        path: "txt-to-pdf",
+        icon: TxtToPdfIcon,
+        description: "Convert text files to PDF",
+      },
+      {
+        name: "Excel to PDF",
+        path: "excel-to-pdf",
+        icon: ExcelToPdfIcon,
+        description: "Convert Excel sheets to PDF",
+      },
     ],
   },
   convertFrom: {
-    title: "Convert From PDF",
+    title: "Convert from PDF",
     tools: [
       {
         name: "PDF to JPG",
@@ -578,6 +611,18 @@ const pdfTools = {
         description: "Convert PDF to PNG images",
       },
       {
+        name: "PDF to BMP",
+        path: "pdf-to-bmp",
+        icon: PdfToBmpIcon,
+        description: "Convert PDF to BMP images",
+      },
+      {
+        name: "PDF to TIFF",
+        path: "pdf-to-tiff",
+        icon: PdfToTiffIcon,
+        description: "Convert PDF to TIFF images",
+      },
+      {
         name: "PDF to Word",
         path: "pdf-to-word",
         icon: PdfToWordIcon,
@@ -590,28 +635,16 @@ const pdfTools = {
         description: "Convert PDF to PowerPoint",
       },
       {
-        name: "PDF to Excel",
-        path: "pdf-to-excel",
-        icon: PdfToExcelIcon,
-        description: "Convert PDF to Excel sheet",
-      },
-      {
         name: "PDF to TXT",
         path: "pdf-to-txt",
         icon: PdfToTxtIcon,
         description: "Convert PDF to text file",
       },
       {
-        name: "PDF to BMP",
-        path: "pdf-to-bmp",
-        icon: PdfToBmpIcon,
-        description: "Convert PDF to BMP images",
-      },
-      {
-        name: "PDF to TIFF",
-        path: "pdf-to-tiff",
-        icon: PdfToTiffIcon,
-        description: "Convert PDF to TIFF images",
+        name: "PDF to ZIP",
+        path: "pdf-to-zip",
+        icon: PdfToZipIcon,
+        description: "Convert PDF to ZIP file",
       },
     ],
   },
@@ -621,14 +654,14 @@ const pdfTools = {
       {
         name: "Protect PDF",
         path: "protect-pdf",
-        icon: ProtectIcon,
+        icon: ProtectPdfIcon,
         description: "Add password to PDF file",
       },
       {
         name: "Unlock PDF",
         path: "unlock-pdf",
-        icon: UnlockIcon,
-        description: "Remove PDF password protection",
+        icon: UnlockPdfIcon,
+        description: "Remove PDF password",
       },
     ],
   },
