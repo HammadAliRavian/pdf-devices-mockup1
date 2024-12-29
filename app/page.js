@@ -313,8 +313,8 @@ export default function Home() {
                             <span className="block w-8 h-8">
                               {React.createElement(tool.icon, {
                                 className: "w-full h-full text-[#002B5C]",
-                                width: "12 md:32",
-                                height: "12md:32",
+                                width: "32",
+                                height: "32",
                                 "aria-hidden": "true",
                               })}
                             </span>
@@ -1226,7 +1226,6 @@ export default function Home() {
     </main>
   );
 }
-
 const features = [
   {
     title: "Edit PDFs",

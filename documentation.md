@@ -150,3 +150,48 @@ For any technical queries or support, please contact the development team at [de
 
 Last Updated: [Current Date]
 Version: 1.0.0
+
+## Assets
+
+### Custom SVG Icons
+Located in: `/public/icons/`
+
+The website utilizes custom-designed SVG icons created specifically for PDFDevices. These icons are:
+- Optimized for web performance
+- Designed to maintain visual consistency
+- Scalable across all device sizes
+- Created with a minimalist, professional style
+
+#### Icon Categories
+- Tool-specific icons (merge, split, compress, etc.)
+- UI/Navigation icons
+- Feature indicators
+- Status icons
+
+#### Implementation
+Icons are implemented using:
+- Direct SVG files for optimal performance
+- Consistent sizing (32x32px base size)
+- Maintained color scheme (#002B5C for primary icons)
+- Proper accessibility attributes
+
+#### Best Practices
+When using these custom SVGs:
+1. Maintain aspect ratio for visual consistency
+2. Use appropriate aria-labels for accessibility
+3. Implement proper scaling for responsive design
+4. Ensure proper color contrast ratios
+
+#### Example Usage
+```jsx
+<span className="block w-8 h-8">
+  <Image
+    src="/icons/tool-name.svg"
+    alt="Tool description"
+    width={32}
+    height={32}
+    className="w-full h-full"
+    aria-hidden="true"
+  />
+</span>
+```
