@@ -510,23 +510,707 @@ export default function Home() {
         </div>
       </section>
 
+      {/* About Us Section */}
+      <section className="py-20 bg-gray-50 overflow-hidden">
+        <div className="container-wrapper">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 px-4 sm:px-6">
+            {/* Content Column */}
+            <div className="space-y-8">
+              <div>
+                <span className="text-sm font-semibold text-[#009688] tracking-wider uppercase mb-4 block">
+                  About PDFDevices
+                </span>
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#002B5C]">
+                  Transforming Document Management Since 2020
+                </h2>
+                <p className="text-gray-600 leading-relaxed">
+                  PDFDevices was founded with a clear mission: to make PDF
+                  management accessible, efficient, and secure for everyone. Our
+                  platform combines powerful features with an intuitive
+                  interface, serving millions of users worldwide.
+                </p>
+              </div>
+
+              {/* Stats */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="p-6 bg-white rounded-xl shadow-sm"
+                >
+                  <div className="text-2xl font-bold text-[#009688] mb-1">
+                    10M+
+                  </div>
+                  <div className="text-sm text-gray-600">Active Users</div>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="p-6 bg-white rounded-xl shadow-sm"
+                >
+                  <div className="text-2xl font-bold text-[#009688] mb-1">
+                    50M+
+                  </div>
+                  <div className="text-sm text-gray-600">PDFs Processed</div>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="p-6 bg-white rounded-xl shadow-sm sm:col-span-1 col-span-2"
+                >
+                  <div className="text-2xl font-bold text-[#009688] mb-1">
+                    99.9%
+                  </div>
+                  <div className="text-sm text-gray-600">Uptime</div>
+                </motion.div>
+              </div>
+
+              {/* Features List */}
+              <div className="space-y-4">
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="flex items-start space-x-3"
+                >
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#009688]/10 flex items-center justify-center mt-1">
+                    <svg
+                      className="w-4 h-4 text-[#009688]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-[#002B5C] mb-1">
+                      Enterprise-Ready Solutions
+                    </h4>
+                    <p className="text-gray-600 text-sm">
+                      Scalable infrastructure supporting businesses of all sizes
+                      with enterprise-grade security.
+                    </p>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="flex items-start space-x-3"
+                >
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#009688]/10 flex items-center justify-center mt-1">
+                    <svg
+                      className="w-4 h-4 text-[#009688]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-[#002B5C] mb-1">
+                      Continuous Innovation
+                    </h4>
+                    <p className="text-gray-600 text-sm">
+                      Regular updates and new features to meet evolving document
+                      management needs.
+                    </p>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+
+            {/* Image Column */}
+            <div className="relative lg:h-auto">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                className="relative h-full min-h-[400px] rounded-2xl overflow-hidden"
+              >
+                {/* Background Pattern */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#002B5C] to-[#1a4674]">
+                  <div className="absolute inset-0 opacity-20 bg-grid-white/[0.1] bg-[length:16px_16px]" />
+                </div>
+
+                {/* Content Overlay */}
+                <div className="absolute inset-0 flex items-center justify-center p-8">
+                  <div className="text-center text-white space-y-4">
+                    <div className="w-20 h-20 mx-auto mb-6">
+                      <svg
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        className="w-full h-full"
+                      >
+                        <rect
+                          x="4"
+                          y="4"
+                          width="32"
+                          height="32"
+                          rx="8"
+                          className="fill-[#009688]"
+                        />
+                        <path
+                          d="M12 14h16l-4 4H16l-4-4z"
+                          className="fill-white/90"
+                        />
+                        <path
+                          d="M14 20h12l-4 4h-4l-4-4z"
+                          className="fill-white/80"
+                        />
+                        <path
+                          d="M16 26h8l-2 2h-4l-2-2z"
+                          className="fill-white/70"
+                        />
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl font-bold mb-2">Our Mission</h3>
+                    <p className="text-white/90 max-w-md mx-auto">
+                      To provide the most comprehensive and user-friendly PDF
+                      solutions, making document management effortless for
+                      everyone.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 bg-white overflow-hidden">
+        <div className="container-wrapper">
+          <div className="text-center mb-16">
+            <span className="text-sm font-semibold text-[#009688] tracking-wider uppercase mb-4 block">
+              Testimonials
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#002B5C]">
+              Trusted by Professionals Worldwide
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto px-4">
+              See what our users have to say about their experience with
+              PDFDevices.
+            </p>
+          </div>
+
+          {/* Testimonials Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 sm:px-6">
+            {[
+              {
+                name: "Sarah Johnson",
+                role: "Marketing Director",
+                company: "TechCorp Inc.",
+                image: "/testimonials/sarah.jpg", // Add actual image path
+                content:
+                  "PDFDevices has streamlined our document workflow significantly. The batch processing feature saves us hours every week.",
+                rating: 5,
+              },
+              {
+                name: "Michael Chen",
+                role: "Legal Consultant",
+                company: "Chen & Associates",
+                image: "/testimonials/michael.jpg", // Add actual image path
+                content:
+                  "The security features are top-notch. Being able to add password protection and digital signatures has made document sharing much safer.",
+                rating: 5,
+              },
+              {
+                name: "Emily Rodriguez",
+                role: "Operations Manager",
+                company: "Global Solutions",
+                image: "/testimonials/emily.jpg", // Add actual image path
+                content:
+                  "Converting files between different formats has never been easier. The interface is intuitive and the results are always perfect.",
+                rating: 5,
+              },
+            ].map((testimonial, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-gray-50 rounded-2xl p-8 relative"
+              >
+                {/* Quote Icon */}
+                <div className="absolute -top-4 -left-4">
+                  <div className="w-8 h-8 rounded-full bg-[#009688] flex items-center justify-center">
+                    <svg
+                      className="w-4 h-4 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z" />
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Rating */}
+                <div className="flex mb-6">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <svg
+                      key={i}
+                      className="w-5 h-5 text-[#FFC107]"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                    </svg>
+                  ))}
+                </div>
+
+                {/* Content */}
+                <p className="text-gray-600 mb-6 text-lg leading-relaxed">
+                  "{testimonial.content}"
+                </p>
+
+                {/* Author */}
+                <div className="flex items-center">
+                  <div className="w-12 h-12 rounded-full bg-[#002B5C]/10 flex items-center justify-center mr-4">
+                    <span className="text-[#002B5C] font-semibold text-lg">
+                      {testimonial.name.charAt(0)}
+                    </span>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-[#002B5C]">
+                      {testimonial.name}
+                    </h4>
+                    <p className="text-sm text-gray-600">
+                      {testimonial.role} at {testimonial.company}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Trust Badges */}
+          <div className="mt-20">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center px-4 sm:px-6">
+              {[
+                { label: "Customer Satisfaction", value: "98%" },
+                { label: "Enterprise Clients", value: "500+" },
+                { label: "Countries Served", value: "150+" },
+                { label: "Industry Awards", value: "25+" },
+              ].map((badge, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="text-center"
+                >
+                  <div className="text-3xl font-bold text-[#002B5C] mb-2">
+                    {badge.value}
+                  </div>
+                  <div className="text-gray-600">{badge.label}</div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section className="py-20 bg-gray-50 overflow-hidden">
+        <div className="container-wrapper">
+          <div className="text-center mb-16">
+            <span className="text-sm font-semibold text-[#009688] tracking-wider uppercase mb-4 block">
+              Flexible Pricing
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#002B5C]">
+              Choose Your Perfect Plan
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto px-4">
+              Select the plan that best suits your needs. All plans include our
+              core features with different levels of capabilities.
+            </p>
+          </div>
+
+          {/* Pricing Cards */}
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-12 px-4 sm:px-6">
+            {/* Free Plan */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="relative bg-white rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300"
+            >
+              <div className="p-8">
+                <h3 className="text-xl font-semibold text-[#002B5C] mb-4">
+                  Free
+                </h3>
+                <div className="flex items-baseline mb-6">
+                  <span className="text-4xl font-bold text-[#002B5C]">$0</span>
+                  <span className="text-gray-500 ml-2">/month</span>
+                </div>
+                <p className="text-gray-600 mb-6">
+                  Perfect for individuals who need quick PDF solutions.
+                </p>
+                <Link
+                  href="/signup"
+                  className="block text-center py-3 px-6 rounded-lg bg-gray-100 hover:bg-gray-200 text-[#002B5C] font-medium transition-colors duration-300"
+                >
+                  Get Started
+                </Link>
+              </div>
+              <div className="p-8 bg-gray-50 rounded-b-2xl">
+                <ul className="space-y-4">
+                  {[
+                    "Basic PDF operations",
+                    "Up to 5 files per day",
+                    "File size limit: 10MB",
+                    "Basic support",
+                  ].map((feature, index) => (
+                    <li key={index} className="flex items-center text-gray-600">
+                      <svg
+                        className="w-5 h-5 text-[#009688] mr-3"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+
+            {/* Pro Plan */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="relative bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+            >
+              <div className="absolute -top-4 left-0 right-0 flex justify-center">
+                <span className="bg-[#009688] text-white px-4 py-1 rounded-full text-sm font-medium">
+                  Most Popular
+                </span>
+              </div>
+              <div className="p-8">
+                <h3 className="text-xl font-semibold text-[#002B5C] mb-4">
+                  Pro
+                </h3>
+                <div className="flex items-baseline mb-6">
+                  <span className="text-4xl font-bold text-[#002B5C]">
+                    $9.99
+                  </span>
+                  <span className="text-gray-500 ml-2">/month</span>
+                </div>
+                <p className="text-gray-600 mb-6">
+                  For professionals who need advanced features.
+                </p>
+                <Link
+                  href="/signup"
+                  className="block text-center py-3 px-6 rounded-lg bg-[#009688] hover:bg-[#00897b] text-white font-medium transition-colors duration-300"
+                >
+                  Start Free Trial
+                </Link>
+              </div>
+              <div className="p-8 bg-gray-50 rounded-b-2xl">
+                <ul className="space-y-4">
+                  {[
+                    "All Free features",
+                    "Unlimited files",
+                    "File size limit: 100MB",
+                    "Priority support",
+                    "Advanced PDF editing",
+                    "Batch processing",
+                  ].map((feature, index) => (
+                    <li key={index} className="flex items-center text-gray-600">
+                      <svg
+                        className="w-5 h-5 text-[#009688] mr-3"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+
+            {/* Enterprise Plan */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="relative bg-white rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300"
+            >
+              <div className="p-8">
+                <h3 className="text-xl font-semibold text-[#002B5C] mb-4">
+                  Enterprise
+                </h3>
+                <div className="flex items-baseline mb-6">
+                  <span className="text-4xl font-bold text-[#002B5C]">
+                    Custom
+                  </span>
+                </div>
+                <p className="text-gray-600 mb-6">
+                  For organizations that need complete control.
+                </p>
+                <Link
+                  href="/contact"
+                  className="block text-center py-3 px-6 rounded-lg bg-[#002B5C] hover:bg-[#1a4674] text-white font-medium transition-colors duration-300"
+                >
+                  Contact Sales
+                </Link>
+              </div>
+              <div className="p-8 bg-gray-50 rounded-b-2xl">
+                <ul className="space-y-4">
+                  {[
+                    "All Pro features",
+                    "Unlimited everything",
+                    "Custom integrations",
+                    "24/7 premium support",
+                    "SLA guarantees",
+                    "Custom deployment",
+                  ].map((feature, index) => (
+                    <li key={index} className="flex items-center text-gray-600">
+                      <svg
+                        className="w-5 h-5 text-[#009688] mr-3"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* FAQ Section */}
+          <div className="mt-20">
+            <div className="text-center mb-12">
+              <h3 className="text-2xl font-bold text-[#002B5C] mb-4">
+                Frequently Asked Questions
+              </h3>
+              <p className="text-gray-600">
+                Find answers to common questions about our pricing and features.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 px-4 sm:px-6">
+              {[
+                {
+                  q: "Can I change plans anytime?",
+                  a: "Yes, you can upgrade, downgrade, or cancel your plan at any time. Changes take effect immediately.",
+                },
+                {
+                  q: "Is there a free trial?",
+                  a: "Yes, we offer a 14-day free trial on our Pro plan with full access to all features.",
+                },
+                {
+                  q: "What payment methods do you accept?",
+                  a: "We accept all major credit cards, PayPal, and bank transfers for Enterprise plans.",
+                },
+                {
+                  q: "Do you offer refunds?",
+                  a: "Yes, we offer a 30-day money-back guarantee if you're not satisfied with our service.",
+                },
+              ].map((faq, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="bg-white p-6 rounded-xl shadow-sm"
+                >
+                  <h4 className="font-semibold text-[#002B5C] mb-2">{faq.q}</h4>
+                  <p className="text-gray-600">{faq.a}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-[#002B5C] to-[#29323C] text-white">
-        <div className="container-wrapper text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Transform Your PDF Experience?
-          </h2>
-          <p className="text-lg text-[#F0F0F0] mb-8 max-w-2xl mx-auto">
-            Join thousands of satisfied users who have already upgraded their
-            PDF workflow.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/signup" className="btn-primary bg-[#009688]">
-              Start Free Trial
-            </Link>
-            <Link href="/demo" className="btn-primary bg-transparent border-2">
-              Schedule Demo
-            </Link>
+      <section className="relative py-20 overflow-hidden">
+        {/* Background with gradient and pattern */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#002B5C] via-[#1a4674] to-[#002B5C]">
+          <div className="absolute inset-0 bg-grid-white/[0.05] bg-[length:16px_16px]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#002B5C] via-transparent to-transparent" />
+        </div>
+
+        <div className="container-wrapper relative">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center px-4 sm:px-6">
+            {/* Content */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-white space-y-6"
+            >
+              <span className="text-sm font-semibold text-[#FFF0A5] tracking-wider uppercase">
+                Get Started Today
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+                Transform Your Document Workflow with PDFDevices
+              </h2>
+              <p className="text-lg text-gray-300 max-w-xl">
+                Join millions of users who trust PDFDevices for their PDF
+                management needs. Experience the most comprehensive suite of PDF
+                tools.
+              </p>
+
+              {/* Feature List */}
+              <div className="space-y-4 py-6">
+                {[
+                  "No installation required",
+                  "Process files securely",
+                  "Free basic features",
+                  "24/7 customer support",
+                ].map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    className="flex items-center space-x-3"
+                  >
+                    <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#FFF0A5]/20 flex items-center justify-center">
+                      <svg
+                        className="w-3 h-3 text-[#FFF0A5]"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                    </div>
+                    <span className="text-gray-300">{feature}</span>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <Link
+                  href="/signup"
+                  className="inline-flex justify-center items-center px-8 py-4 bg-[#009688] hover:bg-[#00897b] text-white font-medium rounded-xl transition-all duration-300 text-center"
+                >
+                  Start Free Trial
+                  <svg
+                    className="w-5 h-5 ml-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    />
+                  </svg>
+                </Link>
+                <Link
+                  href="/pricing"
+                  className="inline-flex justify-center items-center px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-medium rounded-xl backdrop-blur-sm transition-all duration-300 text-center"
+                >
+                  View Pricing
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* Stats/Trust Indicators */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="grid grid-cols-2 gap-6"
+            >
+              {[
+                { number: "10M+", label: "Active Users" },
+                { number: "50M+", label: "PDFs Processed" },
+                { number: "99.9%", label: "Uptime" },
+                { number: "24/7", label: "Support" },
+              ].map((stat, index) => (
+                <div
+                  key={index}
+                  className="p-6 rounded-xl bg-white/10 backdrop-blur-sm hover:bg-white/[0.15] transition-colors duration-300"
+                >
+                  <div className="text-3xl font-bold text-[#FFF0A5] mb-1">
+                    {stat.number}
+                  </div>
+                  <div className="text-sm text-gray-300">{stat.label}</div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Trust Badge */}
+          <div className="mt-16 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm"
+            >
+              <svg
+                className="w-5 h-5 text-[#FFF0A5] mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                />
+              </svg>
+              <span className="text-sm text-gray-300">
+                Trusted by 10,000+ companies worldwide
+              </span>
+            </motion.div>
           </div>
         </div>
       </section>
