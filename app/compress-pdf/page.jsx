@@ -208,6 +208,136 @@ export default function CompressPDF() {
       <section className="py-16 bg-gray-50">
         <div className="container-wrapper">
           <div className="max-w-4xl mx-auto">
+            {/* How to Use Section - Moved here */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#002B5C] mb-4">
+                How to Compress PDF Files
+              </h2>
+              <p className="text-gray-600 max-w-2xl mx-auto px-4">
+                Follow these easy steps to reduce your PDF file size while
+                maintaining quality.
+              </p>
+            </motion.div>
+
+            {/* Steps */}
+            <div className="grid md:grid-cols-3 gap-8 px-4 sm:px-6 relative mb-16">
+              {[
+                {
+                  step: "1",
+                  title: "Choose Compression Level",
+                  description:
+                    "Select your preferred compression level based on your needs - light, recommended, or maximum compression.",
+                  icon: (
+                    <svg
+                      className="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                  ),
+                },
+                {
+                  step: "2",
+                  title: "Upload Your Files",
+                  description:
+                    "Drag and drop your PDF files into the upload area or use the file browser to select them.",
+                  icon: (
+                    <svg
+                      className="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                      />
+                    </svg>
+                  ),
+                },
+                {
+                  step: "3",
+                  title: "Download Compressed PDF",
+                  description:
+                    "Click the compress button and download your optimized PDF file with reduced size.",
+                  icon: (
+                    <svg
+                      className="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                      />
+                    </svg>
+                  ),
+                },
+              ].map((step, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="relative"
+                >
+                  <div className="bg-gray-50 rounded-2xl p-8 h-full group hover:bg-gray-100/80 transition-colors duration-300">
+                    {/* Step Number */}
+                    <div className="absolute -top-4 left-8">
+                      <div className="w-8 h-8 rounded-full bg-[#009688] text-white flex items-center justify-center font-semibold">
+                        {step.step}
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="pt-4">
+                      <div className="mb-6">
+                        <div className="w-12 h-12 rounded-xl bg-[#009688]/10 flex items-center justify-center text-[#009688] group-hover:scale-110 transition-transform duration-300">
+                          {step.icon}
+                        </div>
+                      </div>
+                      <h3 className="text-xl font-semibold text-[#002B5C] mb-3">
+                        {step.title}
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">
+                        {step.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Connector Line */}
+                  {index < 2 && (
+                    <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gray-200">
+                      <div className="absolute right-0 -top-1 w-2 h-2 rounded-full bg-gray-200" />
+                    </div>
+                  )}
+                </motion.div>
+              ))}
+            </div>
+
             {/* Compression Options */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -471,209 +601,6 @@ export default function CompressPDF() {
                 </div>
               </motion.div>
             )}
-          </div>
-        </div>
-      </section>
-
-      {/* How to Use Section */}
-      <section className="py-16 bg-white">
-        <div className="container-wrapper">
-          <div className="max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-center mb-12"
-            >
-              <span className="text-sm font-semibold text-[#009688] tracking-wider uppercase mb-4 block">
-                Simple Steps
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#002B5C] mb-4">
-                How to Compress PDF Files
-              </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto px-4">
-                Follow these easy steps to reduce your PDF file size while
-                maintaining quality.
-              </p>
-            </motion.div>
-
-            {/* Steps */}
-            <div className="grid md:grid-cols-3 gap-8 px-4 sm:px-6 relative">
-              {[
-                {
-                  step: "1",
-                  title: "Choose Compression Level",
-                  description:
-                    "Select your preferred compression level based on your needs - light, recommended, or maximum compression.",
-                  icon: (
-                    <svg
-                      className="w-6 h-6"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-                      />
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                      />
-                    </svg>
-                  ),
-                },
-                {
-                  step: "2",
-                  title: "Upload Your Files",
-                  description:
-                    "Drag and drop your PDF files into the upload area or use the file browser to select them.",
-                  icon: (
-                    <svg
-                      className="w-6 h-6"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-                      />
-                    </svg>
-                  ),
-                },
-                {
-                  step: "3",
-                  title: "Download Compressed PDF",
-                  description:
-                    "Click the compress button and download your optimized PDF file with reduced size.",
-                  icon: (
-                    <svg
-                      className="w-6 h-6"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                      />
-                    </svg>
-                  ),
-                },
-              ].map((step, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="relative"
-                >
-                  <div className="bg-gray-50 rounded-2xl p-8 h-full group hover:bg-gray-100/80 transition-colors duration-300">
-                    {/* Step Number */}
-                    <div className="absolute -top-4 left-8">
-                      <div className="w-8 h-8 rounded-full bg-[#009688] text-white flex items-center justify-center font-semibold">
-                        {step.step}
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="pt-4">
-                      <div className="mb-6">
-                        <div className="w-12 h-12 rounded-xl bg-[#009688]/10 flex items-center justify-center text-[#009688] group-hover:scale-110 transition-transform duration-300">
-                          {step.icon}
-                        </div>
-                      </div>
-                      <h3 className="text-xl font-semibold text-[#002B5C] mb-3">
-                        {step.title}
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        {step.description}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Connector Line */}
-                  {index < 2 && (
-                    <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gray-200">
-                      <div className="absolute right-0 -top-1 w-2 h-2 rounded-full bg-gray-200" />
-                    </div>
-                  )}
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Pro Tips */}
-            <div className="mt-16 px-4 sm:px-6">
-              <div className="bg-gradient-to-br from-[#002B5C] to-[#1a4674] rounded-2xl p-8 md:p-12 relative overflow-hidden">
-                <div className="absolute inset-0 bg-grid-white/[0.05] bg-[length:16px_16px]" />
-
-                <div className="relative">
-                  <h3 className="text-2xl font-bold text-white mb-8">
-                    Pro Tips for Better Compression
-                  </h3>
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {[
-                      {
-                        tip: "Optimize Images First",
-                        description:
-                          "Compress images before adding them to your PDF for better results.",
-                      },
-                      {
-                        tip: "Choose Right Level",
-                        description:
-                          "Select compression level based on your file's content type.",
-                      },
-                      {
-                        tip: "Check Quality",
-                        description:
-                          "Preview the compressed PDF before replacing the original.",
-                      },
-                    ].map((tip, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="flex items-start space-x-4"
-                      >
-                        <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
-                          <svg
-                            className="w-5 h-5 text-[#FFF0A5]"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                            />
-                          </svg>
-                        </div>
-                        <div>
-                          <h4 className="text-white font-medium mb-2">
-                            {tip.tip}
-                          </h4>
-                          <p className="text-gray-300 text-sm leading-relaxed">
-                            {tip.description}
-                          </p>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>

@@ -95,7 +95,129 @@ export default function MergePDF() {
       <section className="py-16 bg-gray-50">
         <div className="container-wrapper">
           <div className="max-w-4xl mx-auto">
-            {/* Upload Area */}
+            {/* How to Use PDF Merge Section - Moved here */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#002B5C] mb-4">
+                How to Merge PDF Files
+              </h2>
+              <p className="text-gray-600 max-w-2xl mx-auto px-4">
+                Follow these simple steps to combine your PDF files quickly and
+                easily.
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-3 gap-8 px-4 sm:px-6 mb-16">
+              {[
+                {
+                  step: "1",
+                  title: "Upload Your Files",
+                  description:
+                    "Drag and drop your PDF files into the upload area or click to browse from your computer.",
+                  icon: (
+                    <svg
+                      className="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                      />
+                    </svg>
+                  ),
+                },
+                {
+                  step: "2",
+                  title: "Arrange Order",
+                  description:
+                    "Organize your PDF files in the desired order by dragging and dropping them into position.",
+                  icon: (
+                    <svg
+                      className="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M4 6h16M4 12h16m-7 6h7"
+                      />
+                    </svg>
+                  ),
+                },
+                {
+                  step: "3",
+                  title: "Merge & Download",
+                  description:
+                    "Click the 'Merge Files' button and download your combined PDF document.",
+                  icon: (
+                    <svg
+                      className="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                      />
+                    </svg>
+                  ),
+                },
+              ].map((step, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="relative"
+                >
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <div className="flex items-start space-x-4">
+                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#009688]/10 flex items-center justify-center">
+                        <span className="text-lg font-semibold text-[#009688]">
+                          {step.step}
+                        </span>
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center space-x-3 mb-4">
+                          <div className="w-8 h-8 rounded-lg bg-[#009688]/10 flex items-center justify-center">
+                            <div className="text-[#009688]">{step.icon}</div>
+                          </div>
+                          <h3 className="text-lg font-semibold text-[#002B5C]">
+                            {step.title}
+                          </h3>
+                        </div>
+                        <p className="text-gray-600 text-sm leading-relaxed">
+                          {step.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Connector Line */}
+                  {index < 2 && (
+                    <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gray-200">
+                      <div className="absolute right-0 -top-1 w-2 h-2 rounded-full bg-gray-200" />
+                    </div>
+                  )}
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Upload Area - Moved after How to Use section */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -554,194 +676,6 @@ export default function MergePDF() {
           </div>
         </div>
       </section>
-      ;{/* How to Use PDF Merge Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container-wrapper">
-          <div className="max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#002B5C] mb-4">
-                How to Merge PDF Files
-              </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto px-4">
-                Follow these simple steps to combine your PDF files quickly and
-                easily.
-              </p>
-            </motion.div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 sm:px-6">
-              {[
-                {
-                  step: "1",
-                  title: "Upload Your Files",
-                  description:
-                    "Drag and drop your PDF files into the upload area or click to browse from your computer.",
-                  icon: (
-                    <svg
-                      className="w-6 h-6"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-                      />
-                    </svg>
-                  ),
-                },
-                {
-                  step: "2",
-                  title: "Arrange Order",
-                  description:
-                    "Organize your PDF files in the desired order by dragging and dropping them into position.",
-                  icon: (
-                    <svg
-                      className="w-6 h-6"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M4 6h16M4 12h16m-7 6h7"
-                      />
-                    </svg>
-                  ),
-                },
-                {
-                  step: "3",
-                  title: "Merge & Download",
-                  description:
-                    "Click the 'Merge Files' button and download your combined PDF document.",
-                  icon: (
-                    <svg
-                      className="w-6 h-6"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                      />
-                    </svg>
-                  ),
-                },
-              ].map((step, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="relative"
-                >
-                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <div className="flex items-start space-x-4">
-                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#009688]/10 flex items-center justify-center">
-                        <span className="text-lg font-semibold text-[#009688]">
-                          {step.step}
-                        </span>
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center space-x-3 mb-4">
-                          <div className="w-8 h-8 rounded-lg bg-[#009688]/10 flex items-center justify-center">
-                            <div className="text-[#009688]">{step.icon}</div>
-                          </div>
-                          <h3 className="text-lg font-semibold text-[#002B5C]">
-                            {step.title}
-                          </h3>
-                        </div>
-                        <p className="text-gray-600 text-sm leading-relaxed">
-                          {step.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Connector Line */}
-                  {index < 2 && (
-                    <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gray-200">
-                      <div className="absolute right-0 -top-1 w-2 h-2 rounded-full bg-gray-200" />
-                    </div>
-                  )}
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Additional Tips */}
-            <div className="mt-16 px-4 sm:px-6">
-              <div className="bg-white rounded-2xl p-8 shadow-sm">
-                <h3 className="text-xl font-semibold text-[#002B5C] mb-6">
-                  Pro Tips for Better Results
-                </h3>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {[
-                    {
-                      tip: "Organize files before uploading",
-                      description:
-                        "Name your files properly to easily identify them during the merge process.",
-                    },
-                    {
-                      tip: "Check file sizes",
-                      description:
-                        "Ensure each file is under 50MB for optimal processing speed.",
-                    },
-                    {
-                      tip: "Preview before merging",
-                      description:
-                        "Review the order of your files to ensure the correct sequence.",
-                    },
-                  ].map((tip, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="flex items-start space-x-3"
-                    >
-                      <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-[#009688]/10 flex items-center justify-center">
-                        <svg
-                          className="w-4 h-4 text-[#009688]"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                          />
-                        </svg>
-                      </div>
-                      <div>
-                        <h4 className="font-medium text-[#002B5C] mb-1">
-                          {tip.tip}
-                        </h4>
-                        <p className="text-sm text-gray-600">
-                          {tip.description}
-                        </p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      ;
     </main>
   );
 }
